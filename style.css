@@ -64,3 +64,14 @@ html, body {
   background: #e2e2e2;
   transform: scale(1.05);
 }
+.footer {
+  position: absolute;
+  bottom: 10px;
+  width: 100%;
+  text-align: center;
+  color: #fff;
+  font-size: 0.9rem;
+  z-index: 3;
+  opacity: 0.7;
+}
+
