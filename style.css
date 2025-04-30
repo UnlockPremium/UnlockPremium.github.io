@@ -29,22 +29,24 @@ html, body {
   top: 0;
   left: 0;
   width: 100%;
-  padding: 40px 20px 20px 20px;
+  padding: 40px 20px 0 20px;
   text-align: center;
   color: #fff;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 .overlay h1 {
   font-size: 3rem;
   margin-bottom: 1rem;
 }
-.content {
-  margin-top: 200px;
+.bottom-content {
+  position: absolute;
+  bottom: 80px;
+  width: 100%;
+  text-align: center;
+  z-index: 2;
+  color: #fff;
 }
-.content p {
+.bottom-content p {
   font-size: 1rem;
   margin-bottom: 1.5rem;
 }
@@ -58,7 +60,6 @@ html, body {
   text-decoration: none;
   font-size: 1rem;
   transition: background 0.3s, transform 0.2s;
-  z-index: 2;
 }
 .btn:hover {
   background: #e2e2e2;
@@ -74,4 +75,3 @@ html, body {
   z-index: 3;
   opacity: 0.7;
 }
-
