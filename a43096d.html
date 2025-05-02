@@ -5,13 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Content Locker</title>
 
-  <!-- AdBlueMedia init -->
+  <!-- AdBlueMedia init (use `id`, not `it`) -->
   <script type="text/javascript">
     console.log('[Debug] Initializing AdBlueMedia…');
-    var fAOrq_pDw_qcaIWc = { it: 4482220, key: "6e566" };
+    var fAOrq_pDw_qcaIWc = { id: 4482220, key: "6e566" };
     console.log('[Debug] fAOrq_pDw_qcaIWc object:', fAOrq_pDw_qcaIWc);
 
-    // Global callback in case the loader script fires its own
     window._adbluemedia_onload = function() {
       console.log('[Debug] _adbluemedia_onload called');
       console.log('[Debug] open exists?', typeof fAOrq_pDw_qcaIWc.open);
