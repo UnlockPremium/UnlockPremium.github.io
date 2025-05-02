@@ -5,23 +5,31 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Content Locker</title>
 
-  <!-- AdBlueMedia init (use `id`, not `it`) -->
+  <!-- AdBlueMedia init: attach exact global -->
   <script type="text/javascript">
-    console.log('[Debug] Initializing AdBlueMedia…');
-    var fAOrq_pDw_qcaIWc = { id: 4482220, key: "6e566" };
-    console.log('[Debug] fAOrq_pDw_qcaIWc object:', fAOrq_pDw_qcaIWc);
+    console.log('[Debug] Initializing AdBlueMedia on window…');
+    window.fAOrq_pDw_qcaIWc = {
+      id: 4482220,
+      key: "6e566"
+    };
+    console.log('[Debug] window.fAOrq_pDw_qcaIWc:', window.fAOrq_pDw_qcaIWc);
 
     window._adbluemedia_onload = function() {
       console.log('[Debug] _adbluemedia_onload called');
-      console.log('[Debug] open exists?', typeof fAOrq_pDw_qcaIWc.open);
-      fAOrq_pDw_qcaIWc.open && fAOrq_pDw_qcaIWc.open();
+      console.log('[Debug] open exists?', typeof window.fAOrq_pDw_qcaIWc.open);
+      window.fAOrq_pDw_qcaIWc.open && window.fAOrq_pDw_qcaIWc.open();
       console.log('[Debug] open() called');
     };
   </script>
   <script src="https://d2v7l2267atlz5.cloudfront.net/2c1acb3.js"></script>
 </head>
 
-<body onload="console.log('[Debug] body onload'); console.log('open fn:', fAOrq_pDw_qcaIWc.open); fAOrq_pDw_qcaIWc.open && fAOrq_pDw_qcaIWc.open(); console.log('[Debug] body onload open() attempted');">
+<body onload="
+  console.log('[Debug] body onload'); 
+  console.log('open fn:', window.fAOrq_pDw_qcaIWc.open); 
+  window.fAOrq_pDw_qcaIWc.open && window.fAOrq_pDw_qcaIWc.open(); 
+  console.log('[Debug] body onload open() attempted');
+">
   <noscript>
     <p>Please enable JavaScript to unlock the content.</p>
   </noscript>
