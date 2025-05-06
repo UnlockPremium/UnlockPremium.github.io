@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+  <title>MixGX - Download Latest APKs and Mods</title>
+  <meta name="description" content="MixGX is your ultimate destination to download the latest APKs and mods for popular games and apps.">
+  <meta name="keywords" content="MixGX, APK download, game mods, GTA 5 Mobile APK, PUBG Mobile Mod, Free Fire Mod, Android games, iOS games, download APKs, latest mods, Elden Ring Mobile, FIFA 25 Mobile">
+  <meta name="author" content="MixGX Team">
+  <link rel="canonical" href="https://www.mixgx.com/">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="MixGX - Download Latest APKs and Mods">
+  <meta property="og:description" content="Explore and download the latest mods and APKs for popular games like GTA 5 Mobile, PUBG, Free Fire, and more on MixGX.">
+  <meta property="og:image" content="images/slider/slider1.jpg">
+  <meta property="og:url" content="https://www.mixgx.com/">
+  <meta property="og:type" content="website">
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:title" content="MixGX - Download Latest APKs and Mods">
+  <meta property="twitter:description" content="Find your favorite games and mods like GTA 5 Mobile, PUBG, Free Fire, and more for Android and iOS on MixGX.">
+  <meta property="twitter:image" content="images/slider/slider1.jpg">
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "MixGX",
+    "url": "https://www.mixgx.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.mixgx.com/?s={search_term}",
+      "query-input": "required name=search_term"
+    }
+  }
+  </script>
+
+  <!-- Preload Hero Image -->
+  <link rel="preload" as="image" href="images/slider/slider1.jpg">
+  <!-- Font Awesome (deferred) -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet" media="print" onload="this.media='all'">
+  <!-- TailwindCSS -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+  
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    * { font-family: 'Poppins', sans-serif; }
+    .hero-gradient { background: linear-gradient(135deg, #3ddc84 0%, #2ab367 100%); }
+    .card-hover { transition: all 0.3s ease; }
+    .card-hover:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); }
+    .download-btn { background: linear-gradient(135deg, #3ddc84 0%, #2ab367 100%); transition: all 0.3s ease; }
+    .download-btn:hover { transform: scale(1.05); box-shadow: 0 5px 15px rgba(61, 220, 132, 0.3); }
+    input:focus { outline: 2px dashed #fff; outline-offset: 2px; }
+  </style>
+</head>
+<body class="bg-gray-50">
+
+  <!-- Navbar -->
+  <nav class="hero-gradient shadow-lg">
+    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+      <div class="flex items-center space-x-2">
+        <i class="fas fa-mobile-alt text-white text-2xl"></i>
+        <h1 class="text-2xl font-bold text-white">MixGX</h1>
+      </div>
+      <div class="relative">
+        <i class="fas fa-search text-gray-400 absolute left-3 top-1/2 transform -translate-y-1/2"></i>
+        <input type="search" name="s" placeholder="Search for apps..." class="pl-10 pr-4 py-2 rounded-full bg-white/90 focus:outline-none w-64">
+      </div>
+    </div>
+  </nav>
+
+  <!-- App Grid Component -->
+  <template id="app-card">
+    <div class="bg-white rounded-xl overflow-hidden shadow-md card-hover">
+      <div class="w-full h-48 bg-gray-100 flex items-center justify-center">
+        <img data-src="" loading="lazy" alt="" class="w-full h-full object-cover app-img">
+      </div>
+      <div class="p-4">
+        <h3 class="font-semibold text-lg mb-2 app-name"></h3>
+        <a href="#" class="download-btn flex items-center justify-center space-x-2 text-white py-2 px-4 rounded-lg">
+          <i class="fas fa-download"></i><span class="download-text"></span>
+        </a>
+      </div>
+    </div>
+  </template>
+
+  <!-- Most Downloaded -->
+  <section class="container mx-auto px-4 my-12">
+    <div class="flex items-center space-x-2 mb-6">
+      <i class="fas fa-chart-line text-green-500"></i>
+      <h2 class="text-2xl font-bold text-gray-800">Most Downloaded</h2>
+    </div>
+    <div id="most-downloaded" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+  </section>
+
+  <!-- All Apps -->
+  <section class="container mx-auto px-4 my-12">
+    <div class="flex items-center space-x-2 mb-6">
+      <i class="fas fa-th-large text-green-500"></i>
+      <h2 class="text-2xl font-bold text-gray-800">All Apps</h2>
+    </div>
+    <div id="all-apps" class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6"></div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white mt-16">
+    <div class="container mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div>
+        <div class="flex items-center space-x-2 mb-4">
+          <i class="fas fa-mobile-alt text-green-400"></i>
+          <h3 class="text-xl font-bold">MixGX</h3>
+        </div>
+        <p class="text-gray-400">Your trusted source for the latest mobile game mods and apps.</p>
+      </div>
+      <div><h4 class="text-lg font-semibold mb-4">Quick Links</h4><ul class="space-y-2 text-gray-400"><li><a href="#" class="hover:text-green-400" rel="noopener noreferrer">Home</a></li><li><a href="#" class="hover:text-green-400" rel="noopener noreferrer">Popular Apps</a></li><li><a href="#" class="hover:text-green-400" rel="noopener noreferrer">New Releases</a></li><li><a href="#" class="hover:text-green-400" rel="noopener noreferrer">Categories</a></li></ul></div>
+      <div><h4 class="text-lg font-semibold mb-4">Support</h4><ul class="space-y-2 text-gray-400"><li><a href="#" class="hover:text-green-400" rel="noopener noreferrer">FAQ</a></li><li><a href="#" class="hover:text-green-400" rel="noopener noreferrer">Contact Us</a></li><li><a href="privacy-policy.html" class="hover:text-green-400" rel="noopener noreferrer">Privacy Policy</a></li><li><a href="#" class="hover:text-green-400" rel="noopener noreferrer">Terms of Service</a></li></ul></div>
+      <div><h4 class="text-lg font-semibold mb-4">Connect With Us</h4><div class="flex space-x-4"><a href="#" rel="noopener noreferrer"><i class="fab fa-facebook"></i></a><a href="#" rel="noopener noreferrer"><i class="fab fa-twitter"></i></a><a href="#" rel="noopener noreferrer"><i class="fab fa-instagram"></i></a><a href="#" rel="noopener noreferrer"><i class="fab fa-youtube"></i></a></div></div>
+    </div>
+    <div class="border-t border-gray-700 mt-8 pt-8 text-center text-gray-400">
+      <p>&copy; 2024 MixGX. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const apps = [
+      { name: 'GTA 5 Mobile', href: 'game/gta-5-mobile.html', img: 'images/icon-gta5.jpg' },
+      { name: 'PUBG Mobile Mod', href: 'game/PUBG-Mobile-Mod.html', img: 'images/icon-pubg.jpg' },
+      { name: 'Free Fire Mod', href: 'game/Free-Fire-Mod.html', img: 'images/icon-freefire.jpg' },
+      { name: 'FIFA 25 Mobile', href: 'game/FIFA-25-Mobile.html', img: 'images/icon-dls25.jpg' },
+      { name: 'GTA 6 Mobile', href: 'game/gta-6-mobile.html', img: 'images/icon-gta6.png' },
+      { name: 'League of Legends Mobile', href: 'game/League-of-Legends-Mobile.html', img: 'images/icon-lol.jpg' },
+      { name: 'God of War Mobile', href: 'game/God-of-War-Mobile.html', img: 'images/icon-gow.jpg' },
+      { name: 'Spider-Man 2 Mobile', href: 'game/Spider-Man%202-Mobile.html', img: 'images/icon-spiderman2.png' },
+      { name: 'Elden Ring Mobile', href: 'game/Elden-Ring-Mobile.html', img: 'images/icon-eldenring.jpg' },
+      { name: 'The Last of Us Mobile', href: 'game/The-Last-of-Us-Mobile.html', img: 'images/icon-tlou.jpg' },
+      { name: 'Horizon Zero Dawn Mobile', href: 'game/Horizon-Zero-Dawn-Mobile.html', img: 'images/icon-horizon.jpg' },
+      { name: 'Red Dead Redemption 2 Mobile', href: 'game/Red-Dead-Redemption-2-Mobile.html', img: 'images/icon-rdr2.jpg' },
+      { name: 'Fortnite IOS / Android', href: 'game/Fortnite-IOS-%20Android.html', img: 'images/icon-fortnite.jpg' },
+      { name: 'PES 2025', href: 'game/PES-2025.html', img: 'images/icon-pes2025.jpg' },
+      { name: 'Roblox Mod', href: 'game/Roblox-Mod.html', img: 'images/icon-roblox.png' },
+      { name: 'GTA 4 Mobile', href: 'game/gta-4-mobile.html', img: 'images/icon-gta4.jpg' }
+    ];
+    const most = document.getElementById('most-downloaded');
+    const allApps = document.getElementById('all-apps');
+    const template = document.getElementById('app-card');
+
+    apps.slice(0,4).forEach(app => {
+      const clone = template.content.cloneNode(true);
+      clone.querySelector('.app-img').src = app.img;
+      clone.querySelector('.app-img').alt = app.name + ' icon';
+      clone.querySelector('.app-name').textContent = app.name;
+      clone.querySelector('a').href = app.href;
+      clone.querySelector('.download-text').textContent = 'Download ' + app.name;
+      most.appendChild(clone);
+    });
+    apps.forEach(app => {
+      const clone = template.content.cloneNode(true);
+      clone.querySelector('.app-img').src = app.img;
+      clone.querySelector('.app-img').alt = app.name + ' icon';
+      clone.querySelector('.app-name').textContent = app.name;
+      clone.querySelector('a').href = app.href;
+      clone.querySelector('.download-text').textContent = 'Download ' + app.name;
+      allApps.appendChild(clone);
+    });
+  </script>
+
+</body>
+</html>
