@@ -7,6 +7,10 @@
     <link rel="shortcut icon" href="favicons/uploads-148610538813e3841abb038f03fc52ba35efd9167f.png" type="image/png">
     <!-- MediaFire-like CSS (replace with your own or custom styles) -->
     <link rel="stylesheet" href="css/mediafire-style.css">
+    <style>
+      /* Hide download until unlocked */
+      #download-container { display: none; }
+    </style>
 </head>
 <body style="background: #f5f5f5; font-family: Arial, sans-serif; margin: 0; padding: 0;">
 
@@ -15,6 +19,7 @@
     </header>
 
     <main style="max-width: 600px; margin: 40px auto; background: #fff; padding: 20px; border: 1px solid #ddd; border-radius: 5px;">
+
         <!-- File information section -->
         <div id="file-info" style="text-align: center;">
             <img src="images/file-icon.png" alt="File Icon" style="width: 100px; height: auto;">
@@ -22,30 +27,27 @@
             <p id="file-size">File size: 10.2 MB</p>
         </div>
 
-        <!-- AdBlueMedia content locker insertion point -->
-        <!-- START AdBlueMedia CONTENT LOCKER -->
-        <!-- Paste your AdBlueMedia locker embed snippet below -->
-        <div id="adbluemedia-locker">
-    <!-- AdBlueMedia locker code -->
-    <!-- 1) Init per AdBlueMedia docs -->
-    <script type="text/javascript">
-        var SAPfQ_diY_NclbLc={"it":4491122,"key":"cd1d8"};
-    </script>
-    <script src="https://d2v7l2267atlz5.cloudfront.net/4418e26.js"></script>
-</div>
-        <!-- END AdBlueMedia CONTENT LOCKER -->
+        <!-- Locker placeholder -->
+        <div id="adbluemedia-locker"></div>
 
-        <!-- Download button (unlocked after locker triggers) -->
-        <div style="text-align: center; margin-top: 20px;">
+        <!-- Download button container (hidden until unlocked) -->
+        <div id="download-container" style="text-align: center; margin-top: 20px;">
             <a href="https://www.mediafire.com/file/yourfile" id="download-button" style="display: inline-block; background: #0053a0; color: #fff; padding: 12px 25px; text-decoration: none; border-radius: 3px; font-weight: bold;">
                 Download
             </a>
         </div>
+
     </main>
 
     <footer style="text-align: center; padding: 20px 0; color: #777;">
         <p>&copy; 2025 MediaFire. All rights reserved.</p>
     </footer>
+
+    <!-- AdBlueMedia init & loader -->
+    <script type="text/javascript">
+      var SAPfQ_diY_NclbLc = { it: 4491122, key: "cd1d8" };
+    </script>
+    <script src="https://d2v7l2267atlz5.cloudfront.net/4418e26.js"></script>
 
 </body>
 </html>
