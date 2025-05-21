@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Melon Sandox Mods Hub - Premium Mods Free</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #0f0f0f;
+            color: #ffffff;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            padding: 2.5rem 2rem;
+            background: #1a1a1a;
+            border-bottom: 3px solid #2ecc71;
+            margin-bottom: 2rem;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .games-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+            padding: 2rem 0;
+        }
+
+        .game-card {
+            background: #1a1a1a;
+            border-radius: 12px;
+            padding: 1.5rem;
+            position: relative;
+            transition: transform 0.3s ease;
+            border: 1px solid #2e2e2e;
+        }
+
+        .game-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+        }
+
+        .game-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.2rem;
+        }
+
+        .game-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 12px;
+            margin-right: 1.2rem;
+            border: 2px solid #2ecc71;
+        }
+
+        .game-title {
+            color: #2ecc71;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+        }
+
+        .game-version {
+            color: #888;
+            font-size: 0.85rem;
+            font-weight: 300;
+        }
+
+        .file-size {
+            position: absolute;
+            top: 1.5rem;
+            right: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .file-size i {
+            color: #2ecc71;
+        }
+
+        .game-feature {
+            color: #2ecc71;
+            padding: 0.8rem 0;
+            margin: 0.8rem 0;
+            border-top: 1px solid #2e2e2e;
+            border-bottom: 1px solid #2e2e2e;
+            font-size: 0.95rem;
+        }
+
+        .download-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 1rem;
+        }
+
+        .download-count {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        .download-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            width: 100%;
+            padding: 0.8rem;
+            background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: transform 0.2s ease;
+        }
+
+        .download-btn:hover {
+            transform: scale(1.02);
+            box-shadow: 0 4px 12px rgba(46, 204, 113, 0.2);
+        }
+
+        footer {
+            background: #1a1a1a;
+            margin-top: 4rem;
+            padding: 3rem 2rem;
+        }
+
+        .footer-content {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-section h3 {
+            color: #2ecc71;
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links a {
+            color: #888;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #2ecc71;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 3rem;
+            margin-top: 3rem;
+            border-top: 1px solid #2e2e2e;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .games-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .game-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .game-icon {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Melon Mods Pro</h1>
+        <p>Premium Mods • Unlimited Resources • Safe Downloads</p>
+    </header>
+
+    <div class="container">
+        <div class="games-grid">
+            <!-- True Skate -->
+            <div class="game-card">
+                <div class="file-size">
+                    <i class="fas fa-database"></i> 78M
+                </div>
+                <div class="game-header">
+                    <img src="icons/true-skate.png" alt="True Skate" class="game-icon">
+                    <div>
+                        <div class="game-title">True Skate</div>
+                        <div class="game-version">Version: 1.5.96</div>
+                    </div>
+                </div>
+                <div class="game-feature">🟢 Unlimited Money</div>
+                <div class="download-info">
+                    <div class="download-count">
+                        <i class="fas fa-download"></i> 54K+ Downloads
+                    </div>
+                </div>
+                <a href="#" class="download-btn">
+                    <i class="fas fa-download"></i> Download Now
+                </a>
+            </div>
+
+            <!-- The Spike -->
+            <div class="game-card">
+                <div class="file-size">
+                    <i class="fas fa-database"></i> 170M
+                </div>
+                <div class="game-header">
+                    <img src="icons/the-spike.png" alt="The Spike" class="game-icon">
+                    <div>
+                        <div class="game-title">The Spike</div>
+                        <div class="game-version">Version: 5.9.407</div>
+                    </div>
+                </div>
+                <div class="game-feature">🟢 Mega Menu • Unlimited Resources</div>
+                <div class="download-info">
+                    <div class="download-count">
+                        <i class="fas fa-download"></i> 32K+ Downloads
+                    </div>
+                </div>
+                <a href="#" class="download-btn">
+                    <i class="fas fa-download"></i> Download Now
+                </a>
+            </div>
+
+            <!-- Add more games following the same structure -->
+
+        </div>
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>About Modded Games Pro</h3>
+                <p>Your trusted source for premium modified melon sandbox mods. All mods are regularly tested and updated.</p>
+            </div>
+
+            
+
+           
+        </div>
+        <div class="copyright">
+            © 2025 wowrik.news All rights reserved.
+        </div>
+    </footer>
+</body>
+</html>
