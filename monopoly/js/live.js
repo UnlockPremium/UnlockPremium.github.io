@@ -1,7 +1,14 @@
 // This is a simplified example of what might be in live.js
 
 // 1. Pre-defined lists of fake data
-const usernames = ["Player123", "DiceMaster", "MonopolyFan", "LuckyRoller", "Jake P.", "Maria S."];
+const usernames = [
+    "Player123", "DiceMaster", "MonopolyFan", "LuckyRoller", "Jake P.", "Maria S.",
+    "GamerGalore", "CodeNinja", "PixelPirate", "QuantumQueen", "SonicBoom",
+    "StarGazer", "DragonSlayer", "ShadowWalker", "EpicVoyager", "MysticMage",
+    "TechTitan", "VeloCity", "AquaKnight", "FirePhoenix", "BoltMaster",
+    "DreamWeaver", "IronHeart", "SilverSurfer", "GoldenGriff", "NightHawk",
+    "SunSeeker", "MoonBeam", "ThunderStrike", "CrimsonKing", "JadeJaguar"
+];
 const amounts = ["36,000", "50,000", "999,999"];
 const countries = ["from United States", "from United Kingdom", "from Australia", "from Canada"];
 
@@ -27,4 +34,4 @@ setInterval(function() {
         });
     }
 
-}, 4500); // Run this every 4.5 seconds
+}, 3500); // Run this every 4.5 seconds
