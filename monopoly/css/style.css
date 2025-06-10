@@ -104,7 +104,7 @@ a:hover, a:visited, a:focus, a:active, button:hover, button:visited, button:acti
 	min-width: 100%; 
 	min-height: 100%;
 	z-index: -20;
-	background: url('../images/main-bg.jpg');
+	background: url('../images/melonB.png');
 	background-repeat: no-repeat;
 	background-size: cover;
 }
