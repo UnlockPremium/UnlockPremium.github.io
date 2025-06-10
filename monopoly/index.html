@@ -372,18 +372,19 @@
 <script>
 		var z = document.getElementById("myAA")
         function nexT() {
-        let timerInterval
-          Swal.fire({
-            timer: 5000,
-            imageUrl: 'img/spin.webp',
-            imageAlt: 'Loading',
-			title: 'Loading',
-            showConfirmButton: false,
-            onClose: () => {
-              clearInterval(timerInterval)
-            }
-
-          }).then(function() {
+        let timerInterval;
+    Swal.fire({
+        title: 'Loading',
+        html: '<div class="spinner"></div>',
+        showConfirmButton: false,
+        timer: 5000,
+        onBeforeOpen: () => {
+            Swal.showLoading();
+        },
+        onClose: () => {
+            clearInterval(timerInterval);
+        }
+    }).then(function() {
 			var x = document.getElementById("control");
 			  if (x.style.display === "none") {
 				x.style.display = "block";
@@ -478,7 +479,25 @@
 			})
 		})
         }
-		</script>
+
+</script>
+
+	<style>
+.spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+</style>
 <script>
           // Add active class to the current button (highlight it)
           var header = document.getElementById("devices");
