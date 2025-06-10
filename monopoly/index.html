@@ -256,7 +256,7 @@
 <div id="devices">
 <div class="row small-margin">
 <div class="col small-padding">
-<div onclick="playA()" class="platform-item platform-item-1 active">
+<div onclick="playA()" class="platform-item platform-item-1">
 <i class="fab fa-android"></i>
 <span>Android</span>
 </div>
@@ -275,7 +275,7 @@
 <div id="currency">
 <div class="row small-margin">
 <div class="col small-padding">
-<div onclick="playA()" class="platform-item1 platform-item-1 active1">
+<div onclick="playA()" class="platform-item1 platform-item-1">
 <img src="images/gold.png">
 <span>36,000</span>
 </div>
@@ -304,7 +304,6 @@
 <div class="app-download-main animated bounceIn">
 <p>You are almost done! Please, complete this final step by clicking on the button below and follow all stated instructions in order to verify you are a human.</p>
 <div id="spiner" class="fas fa-spinner fa-spin"></div>
-
 <a href="https://getmerolls.com/get/monopoly/app/" rel="noopener noreferrer nofollow" target="_blank"><div class="button-wrapper">
 <div id="b-1" onclick="void" class="button animated pulse infinite"><span class="lnr lnr-download"></span><span>Verify Now</span></div>
 </div></a>
@@ -400,12 +399,15 @@
 			})
         }
 
-        // FULLY MODIFIED nexT1 FUNCTION
+        // MODIFIED nexT1 FUNCTION WITH VALIDATION
 		function nexT1() {
 		    let timerInterval;
             const username = document.querySelector('input[name="usernameInput"]').value;
+            const selectedPlatform = document.querySelector('.platform-item.active');
+            const selectedDice = document.querySelector('.platform-item1.active1');
 
             if (!username) {
+                b.play(); // Play error sound
                 Swal.fire({
                     type: 'error',
                     title: 'Username Required',
@@ -415,6 +417,31 @@
                 });
                 return;
             }
+
+            if (!selectedPlatform) {
+                b.play(); // Play error sound
+                Swal.fire({
+                    type: 'error',
+                    title: 'Platform Not Selected',
+                    text: 'Please choose your platform (Android/iOS).',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+                return;
+            }
+
+            if (!selectedDice) {
+                b.play(); // Play error sound
+                Swal.fire({
+                    type: 'error',
+                    title: 'Amount Not Selected',
+                    text: 'Please select a dice amount.',
+                    timer: 3000,
+                    showConfirmButton: false
+                });
+                return;
+            }
+
 
 		    Swal.fire({
 		        timer: 5000,
