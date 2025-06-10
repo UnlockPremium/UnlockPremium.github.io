@@ -1,0 +1,541 @@
+<!DOCTYPE html><html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head><meta name="robots" content="noindex, nofollow">
+
+
+
+
+
+<title>GetMeRolls - #1 Monopoly Go Free Dice & Rolls Source</title>
+<meta name="keywords" content="monopoly go free dice, monopoly go free rolls, monopoly go cheats">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link rel="icon" type="image/png" href="img/favicon.png">
+<meta name="theme-color" content="#000000">
+
+
+<link rel="stylesheet" href="css/icon-font.min.html">
+<link rel="stylesheet" href="css/all.html">
+<link href="https://fonts.googleapis.com/css?family=Russo+One&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Poppins:300,400,700&display=swap" rel="stylesheet">
+
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/animate.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="css/sweetalert2.css" rel="stylesheet">
+<script src="js/vanillatoasts.js"></script>
+<script src="js/live.js"></script>
+<link href="css/vanillatoasts.css" rel="stylesheet">
+
+
+<style>
+            
+            strike {
+                color: red;
+            }
+            
+		input[type="value"]{
+			font-size: 32px;
+		}
+		input[type="text"]{
+		-moz-appearance: none;
+		-webkit-appearance: none;
+		-ms-appearance: none;
+		appearance: none;
+		background: #e7e7e7;
+		border: 0;
+		border-radius: 10px;
+		color: #222222;
+		display: block;
+		outline: 0;
+		padding: 0 1em;
+		text-decoration: none;
+		width: 100%;
+		}
+		input::-moz-focus-inner {
+		border: 0;
+		padding: 0;
+		}
+		input {
+		color: #222222;
+		font-size: 30px;
+		font-weight: 600;
+		letter-spacing: 0.025em;
+		line-height: 1.65;
+		}
+		#spiner {
+			font-size: 2.6em;
+			display: block;
+			text-align: center;
+			margin: 20px auto;
+			color: #587395;
+		}
+		.hide {
+			display: none;
+		}
+		.swal2-popup {
+			border-radius: 30px;
+		}
+		.Coins-color { 
+			color: rgb(218, 155, 47) !important; 
+			text-shadow: -1px -1px 0 #1b1f2f, 1px -1px 0 #1b1f2f, -1px 1px 0 #1b1f2f, 1px 1px 0 #1b1f2f;    
+		}
+		.Coins-color { 
+			color: #FAF6A7 !important; 
+			text-shadow: -1px -1px 0 #1b1f2f, 1px -1px 0 #1b1f2f, -1px 1px 0 #1b1f2f, 1px 1px 0 #1b1f2f;
+		}
+		.form-group {
+			margin-top: 0px;
+		}
+		.form-group input {
+			padding: 0;
+			text-align: center;
+			height: 55px;
+			font-size: 32px;
+			font-family: 'Russo One', sans-serif;
+			text-shadow: -1px -1px 0 #1b1f2f, 1px -1px 0 #1b1f2f, -1px 1px 0 #1b1f2f, 1px 1px 0 #1b1f2f;	
+		}
+		button.btn-minus, button.btn-plus {
+			font-size: 16px;
+			text-shadow: -1px -1px 0 rgba(0,0,0,0.3);
+			color: #fff;
+			padding: 3px 20px;
+			margin: 0px 10px 0 10px;
+			-webkit-border-radius: 3px; 
+			-moz-border-radius: 3px;
+			border-radius: 3px;
+            width: 56px;
+            height: 32px;
+		}
+		button.btn-minus {
+			border: 1px solid #df0909; 
+			background-color: #f62b2b; background-image: -webkit-gradient(linear, left top, left bottom, from(#f62b2b), to(#d20202));
+			background-image: -webkit-linear-gradient(top, #f62b2b, #d20202);
+			background-image: -moz-linear-gradient(top, #f62b2b, #d20202);
+			background-image: -ms-linear-gradient(top, #f62b2b, #d20202);
+			background-image: -o-linear-gradient(top, #f62b2b, #d20202);
+			background-image: linear-gradient(to bottom, #f62b2b, #d20202);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#f62b2b, endColorstr=#d20202);
+		}
+		button.btn-plus {
+			border:1px solid #34740e;
+			background-color: #4ba614; background-image: -webkit-gradient(linear, left top, left bottom, from(#4ba614), to(#008c00));
+			background-image: -webkit-linear-gradient(top, #4ba614, #008c00);
+			background-image: -moz-linear-gradient(top, #4ba614, #008c00);
+			background-image: -ms-linear-gradient(top, #4ba614, #008c00);
+			background-image: -o-linear-gradient(top, #4ba614, #008c00);
+			background-image: linear-gradient(to bottom, #4ba614, #008c00);filter:progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr=#4ba614, endColorstr=#008c00);
+		}
+		.disabledJS {
+			pointer-events: none; 
+		}
+		span.number {
+			font-weight: normal;
+			font-size: 32px;
+			font-family: 'Russo One', sans-serif;
+		}
+		.input-icon2 {
+			margin-top: -8px;
+			position: relative;
+			margin: auto;
+		}
+		.input-icon2 {
+			height: 50px;
+			width: 80px;
+			line-height: 40px;
+			background: #e7e7e7;
+			border: 10px solid #e7e7e7;
+			border-radius: 30px 30px 0px 0px;
+		}
+		.resources {
+			width: 40px;
+			height: 40px;
+		}
+		.float{
+			position:fixed;
+			width:55px;
+			height:55px;
+			bottom:40px;
+			right:40px;
+			background-color:#587395;
+			color:#FFF;
+			border-radius:50px;
+			text-align:center;
+			box-shadow: 2px 2px 3px #999;
+		}
+		.float:hover {
+			color: #000;
+			background-color: #fff;
+		}
+		.my-float{
+			margin-top:19px;
+		}
+		</style>
+
+
+
+</head>
+<body onload="create()">
+<div id="bg"></div>
+<div class="overlay-pattern"></div>
+<div class="overlay"></div>
+<section class="app-download-section">
+<div class="container">
+<div class="app-download-wrapper animated flipInX">
+<div class="app-icon-wrapper">
+<div class="app-icon-inner-wrapper">
+<img src="img/logo.png" class="app-icon-img img-fluid">
+</div>
+</div>
+<div class="app-download-content">
+<div class="app-download-content-header">
+<h1><span>Monopoly Go Dice Generator</span></h1>
+</div>
+<div class="app-download-status">
+<div class="status-row row-first animated bounceIn animation-delay-400">
+<span class="status-label">Status:</span>
+<span id="status" class="status-dynamic">Online</span>
+</div>
+<div class="status-row row-second odd animated bounceIn animation-delay-600">
+<span class="status-label">Last Update:</span>
+<span id="date" class="status-dynamic"></span>
+</div>
+<div class="status-row row-last animated bounceIn animation-delay-800">
+<span class="status-label">Online Users:</span>
+<span id="online-count" class="status-dynamic"></span>
+</div>
+</div>
+<div id="control">
+<div class="app-download-main animated bounceIn">
+<p class="app-download-intro-text">Click on the button below to begin the process.</p>
+<div class="button-wrapper">
+<div id="b-1" onclick="nexT();playAu()" class="button animated pulse infinite"><span class="lnr lnr-download"></span><span>Start Hack</span></div>
+</div>
+</div>
+</div>
+<div id="show" class="hide">
+<div class="app-download-main animated bounceIn">
+<p class="app-download-intro-text">Enter Your Username:</p>
+<form action="javascript:void(0);">
+<input type="text" name="usernameInput" value="">
+</form>
+<br>
+<p class="app-download-intro-text">Choose Your Platform:</p>
+<div class="field-wrapper platform-field-wrapper">
+<div id="devices">
+<div class="row small-margin">
+<div class="col small-padding">
+<div onclick="playA()" class="platform-item platform-item-1">
+<i class="fab fa-android"></i>
+<span>Android</span>
+</div>
+</div>
+<div class="col small-padding">
+<div onclick="playA()" class="platform-item platform-item-2">
+<i class="fab fa-apple"></i>
+<span>iOS</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<br>
+<p class="app-download-intro-text">Select Dice Amount:</p>
+<div id="currency">
+<div class="row small-margin">
+<div class="col small-padding">
+<div onclick="playA()" class="platform-item1 platform-item-1">
+<img src="img/gold.png">
+<span>36,000</span>
+</div>
+</div>
+<div class="col small-padding">
+<div onclick="playA()" class="platform-item1 platform-item-2">
+<img src="img/gold.png">
+<span>50,000</span>
+</div>
+</div>
+<div class="col small-padding">
+<div onclick="playA()" class="platform-item1 platform-item-2">
+<img src="img/gold.png">
+<span>999999</span>
+</div>
+</div>
+</div>
+<br>
+<div class="button-wrapper">
+<div id="b-2" onclick="playAu(); nexT1()" class="button animated pulse infinite"><span class="lnr lnr-download"></span><span>Continue</span></div>
+</div>
+</div>
+</div>
+</div>
+<div id="verify" class="hide">
+<div class="app-download-main animated bounceIn">
+<p>You are almost done! Please, complete this final step by clicking on the button below and follow all stated instructions in order to verify you are a human.</p>
+<!--<p>In Order to Keep Our Software Stay Undetected From Automatic Bot, Please Complete the Verification Process.</p>
+			
+			<center><h2><b>How to Verify?</h2></b></center>
+			<center><h2><b>Step - 1</h2></b></center>
+			<center><b>Like Our Video And Subscribe to Our Youtube Channel</b></center><br>
+			
+			
+			<div style="text-align: center;">
+  <a href="http://tiny.cc/d3mcvz" rel="noopener noreferrer nofollow" target="_blank">
+    <img src="img/like.png" style="max-width: 100%; height: auto;" alt="Youtube Like">
+  </a>
+  |
+  <a href="http://tiny.cc/g3mcvz" rel="noopener noreferrer nofollow" target="_blank">
+    <img src="img/sub.png" style="max-width: 100%; height: auto;" alt="Youtube Subscribe">
+  </a>
+</div>
+
+<div style="text-align: center;"><br>
+  <h2><b>Step - 2</b></h2>
+</div>
+
+<div style="text-align: center;"><b>
+  Please Make a Positive Comment On Our Video.</b>
+</div>
+<br>
+<div style="text-align: center;">
+  <a href="http://tiny.cc/f3mcvz" rel="noopener noreferrer nofollow" target="_blank">
+    <img src="img/comment.png" style="max-width: 100%; height: auto;" alt="Youtube Comment">
+  </a>
+</div>
+<br>
+<div style="text-align: center;">
+  <h2><b>Step - 3</b></h2>
+</div>
+
+<div style="text-align: center;">
+  <b>Use the Verify Button Below to Complete a Verification As Instructed.</b>
+</div>-->
+
+<div id="spiner" class="fas fa-spinner fa-spin"></div>
+
+<a href="https://getmerolls.com/get/monopoly/app/" rel="noopener noreferrer nofollow" target="_blank"><div class="button-wrapper">
+<div id="b-1" onclick="void" class="button animated pulse infinite"><span class="lnr lnr-download"></span><span>Verify Now</span></div>
+</div></a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer>
+<div class="container">
+<div class="footer-content">
+<div class="policy-links">
+</div>
+<p>© All trademarks, service marks, trade names, product names and logos appearing on this site are the property of their respective owners.</p>
+</div>
+</div>
+</footer>
+
+<div class="X650d"></div>
+<audio id="myAudio">
+<source src="sounds/click.ogg" type="audio/ogg">
+<source src="sounds/click-2.html" type="audio/mp3">
+</audio>
+<audio id="myAu">
+<source src="sounds/choose.ogg" type="audio/ogg">
+<source src="sounds/choose-2.html" type="audio/mp3">
+</audio>
+<audio id="myAA">
+<source src="sounds/success.ogg" type="audio/ogg">
+<source src="sounds/success-2.html" type="audio/mp3">
+</audio>
+<audio id="myerror">
+<source src="sounds/error.ogg" type="audio/ogg">
+<source src="sounds/error-2.html" type="audio/mp3">
+</audio>
+
+<script>
+		function random(min,max)
+			{
+				return Math.floor(Math.random()*(max-min+1)+min);
+			}
+		
+			var initial = random(300, 400);
+			var count = initial;
+		
+			setInterval(function() {
+				var variation = random(-5,5);
+		
+				count += variation
+				document.getElementById("online-count").innerHTML = count;
+		
+			}, 1000)
+		</script>
+<script>
+			var d = new Date();
+			document.getElementById("date").innerHTML = d.toDateString();
+		</script>
+<script>
+		var z = document.getElementById("myAA")
+        function nexT() {
+        let timerInterval
+          Swal.fire({
+            timer: 5000,
+            imageUrl: 'img/spin.webp',
+            imageAlt: 'Loading',
+			title: 'Loading',
+            showConfirmButton: false,
+            onClose: () => {
+              clearInterval(timerInterval)
+            }
+
+          }).then(function() {
+			var x = document.getElementById("control");
+			  if (x.style.display === "none") {
+				x.style.display = "block";
+			  } else {
+					x.style.display = "none";
+				}
+			z.play();
+			var element = document.getElementById("show");
+			element.classList.remove("hide");
+			Swal.fire({
+			type: 'success',
+			title: 'Started Mod Successfully',
+			showConfirmButton: false,
+			timer: 3000,
+			onClose: () => {
+              clearInterval(timerInterval)
+            }
+			})
+			})
+        }
+		function nexT1() {
+		let timerInterval
+          Swal.fire({
+            timer: 5000,
+            imageUrl: 'img/spin.webp',
+			imageAlt: 'Loading',
+			title: 'Looking For Username',
+            showConfirmButton: false,
+            onClose: () => {
+              clearInterval(timerInterval)
+            }
+
+            }).then(function() {
+			z.play();
+			Swal.fire({
+			type: 'success',
+			title: 'Player found',
+			showConfirmButton: false,
+			timer: 3000,
+			onClose: () => {
+              clearInterval(timerInterval)
+            }
+			}).then(function() {
+				Swal.fire({
+				timer: 5000,
+				imageUrl: 'img/spin.webp',
+				imageAlt: 'Loading',
+				title: 'Generating',
+				showConfirmButton: false,
+				onClose: () => {
+				clearInterval(timerInterval)
+				}
+				}).then (function(){
+					z.play();
+					Swal.fire({
+					type: 'success',
+					title: 'Resource Generated',
+					showConfirmButton: false,
+					timer: 3000,
+					onClose: () => {
+					clearInterval(timerInterval)
+					}
+					}).then(function() {
+						Swal.fire({
+						timer: 5000,
+						imageUrl: 'img/spin.webp',
+						imageAlt: 'Loading',
+						title: 'Verifying',
+						showConfirmButton: false,
+						onClose: () => {
+						  clearInterval(timerInterval)
+						}
+						}).then(function() {
+							b.play();
+							Swal.fire({
+							type: 'error',
+							title: 'Unable to verify Account Owner',
+							showConfirmButton: false,
+							timer: 3000,
+							onClose: () => {
+							clearInterval(timerInterval)
+							}
+							}).then(function(){
+								var element = document.getElementById("show");
+								element.classList.add("hide");
+								var element1 = document.getElementById("verify");
+								element1.classList.remove("hide");
+							})
+						})	
+					})				
+				})
+			})
+		})
+        }
+		</script>
+<script>
+          // Add active class to the current button (highlight it)
+          var header = document.getElementById("devices");
+          var btns = header.getElementsByClassName("platform-item");
+          for (var i = 0; i < btns.length; i++) {
+            btns[i].addEventListener("click", function() {
+            var current = document.getElementsByClassName("active");
+            if (current.length > 0) { 
+              current[0].className = current[0].className.replace(" active", "");
+            }
+            this.className += " active";
+            });
+          }
+		</script>
+<script>
+					// Add active class to the current button (highlight it)
+					var header = document.getElementById("currency");
+					var btns = header.getElementsByClassName("platform-item1");
+					for (var i = 0; i < btns.length; i++) {
+					  btns[i].addEventListener("click", function() {
+					  var current = document.getElementsByClassName("active1");
+					  if (current.length > 0) { 
+						current[0].className = current[0].className.replace(" active1", "");
+					  }
+					  this.className += " active1";
+					  });
+					}
+		</script>
+<script>
+			var x = document.getElementById("myAudio"); 
+			var y = document.getElementById("myAu")
+			var z = document.getElementById("myAA")
+			var b = document.getElementById("myerror")
+			function playAu() { 
+			  x.play(); 
+			}
+			function playA() {
+			  y.play();
+			}
+			function playAA() {
+			  z.play();
+			}
+			function playerror() {
+			  b.play();
+			}	 
+        </script>
+		
+		
+
+		
+
+<script src="js/sweetalert2.js"></script>
+
+
+
+
+
+
+
+</body></html>
