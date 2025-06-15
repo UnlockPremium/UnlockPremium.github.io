@@ -246,7 +246,7 @@
 </div>
 <div id="show" class="hide">
 <div class="app-download-main animated bounceIn">
-<p class="app-download-intro-text">Enter Your Username:</p>
+<p class="app-download-intro-text">Enter Your Melon Username:</p>
 <form action="javascript:void(0);">
 <input type="text" name="usernameInput" value="" placeholder="Your Username">
 </form>
@@ -465,8 +465,8 @@
 				}).then(function() {
 					Swal.fire({
 					timer: 5000,
-					title: 'Generating Resources',
-                    html: '<p>Injecting selected items into your selected account...</p><div class="progress-container"><div class="progress-bar"></div></div>',
+					title: 'Generating MelonCoins',
+                    html: '<p>Injecting selected amount into your selected account...</p><div class="progress-container"><div class="progress-bar"></div></div>',
 					showConfirmButton: false,
 					onClose: () => {
 					clearInterval(timerInterval)
@@ -475,7 +475,7 @@
 						z.play();
 						Swal.fire({
 						type: 'success',
-						title: 'Resources Generated!',
+						title: 'MelCoins Generated!',
 						showConfirmButton: false,
 						timer: 3000,
 						onClose: () => {
@@ -495,7 +495,7 @@
 								Swal.fire({
 								type: 'error',
 								title: 'Automatic Verification Failed',
-                                html: '<p>We could not verify you automatically.</p><p>Please complete a quick manual verification step.</p>',
+                                html: '<p>We could not verify you automatically.</p><p>Please complete a quick manual Human verification step.</p>',
 								showConfirmButton: false,
 								timer: 3000,
 								onClose: () => {
