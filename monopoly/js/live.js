@@ -21,7 +21,7 @@ setInterval(function() {
     let randomCountry = countries[Math.floor(Math.random() * countries.length)];
 
     // Create the message for the popup
-    let message = `<b>${randomUser}</b> ${randomCountry} has received <span class="Coins-color">${randomAmount}</span> DiceX!`;
+    let message = `<b>${randomUser}</b> ${randomCountry} has received <span class="Coins-color">${randomAmount}</span> Dice!`;
 
     // 4. Use the toast library to show the popup
     // The actual function call might be slightly different depending on the library
