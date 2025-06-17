@@ -10,7 +10,8 @@ const usernames = [
     "DreamWeaver", "IronHeart", "SilverSurfer", "GoldenGriff", "NightHawk",
     "SunSeeker", "MoonBeam", "ThunderStrike", "CrimsonKing", "JadeJaguar"
 ];
-const amounts = ["36", "50", "99", "57", "10", "19"];
+const amounts = ["3", "50", "99", "57", "10", "19", "25", "43", "61", "88", "72", "15", "34", "77", "91", "28", "65", "12", "100", "5"];
+
 const countries = ["from United States", "from United Kingdom", "from Australia", "from Canada"];
 
 // 2. A function that runs on a timer (e.g., every 4 seconds)
