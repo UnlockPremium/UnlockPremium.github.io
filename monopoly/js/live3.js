@@ -10,7 +10,7 @@ const usernames = [
     "DreamWeaver", "IronHeart", "SilverSurfer", "GoldenGriff", "NightHawk",
     "SunSeeker", "MoonBeam", "ThunderStrike", "CrimsonKing", "JadeJaguar"
 ];
-const amounts = ["36,000", "50,000", "999,999"];
+const amounts = ["36 CODES", "50 CODES", "99 CODES"];
 const countries = ["from United States", "from United Kingdom", "from Australia", "from Canada"];
 
 // 2. A function that runs on a timer (e.g., every 4 seconds)
@@ -22,7 +22,7 @@ setInterval(function() {
     let randomCountry = countries[Math.floor(Math.random() * countries.length)];
 
     // Create the message for the popup
-    let message = `<b>${randomUser}</b> ${randomCountry} has received <span class="Coins-color">${randomAmount}</span> Melcoins!`;
+    let message = `<b>${randomUser}</b> ${randomCountry} has received <span class="Coins-color">${randomAmount}</span> CODES!`;
 
     // 4. Use the toast library to show the popup
     // The actual function call might be slightly different depending on the library
