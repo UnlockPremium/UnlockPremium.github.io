@@ -1,0 +1,129 @@
+
+/**
+ * Buttons
+*/
+@-webkit-keyframes send {
+  0% {
+    transform: translateX(0);
+  }
+  7% {
+    transform: translateX(0.3em);
+  }
+  21% {
+    transform: translateX(-0.3em);
+  }
+  35% {
+    transform: translateX(0.3em);
+  }
+  49% {
+    transform: translateX(-0.3em);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(5em);
+    opacity: 0;
+  }
+}
+@keyframes send {
+  0% {
+    transform: translateX(0);
+  }
+  7% {
+    transform: translateX(0.3em);
+  }
+  21% {
+    transform: translateX(-0.3em);
+  }
+  35% {
+    transform: translateX(0.3em);
+  }
+  49% {
+    transform: translateX(-0.3em);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(5em);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes sendrev {
+  0% {
+    transform: translateX(5em);
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(5em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+@keyframes sendrev {
+  0% {
+    transform: translateX(5em);
+    opacity: 0;
+  }
+  25% {
+    transform: translateX(5em);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+button {
+	cursor: pointer;
+	-webkit-transition: all .3s ease 0s;
+	-moz-transition: all .3s ease 0s;
+	transition: all .3s ease 0s;
+}
+
+.buttons {
+  display: inline-flex;
+  align-items: center;
+  margin: 15px 15px 15px 0;
+  /* padding: 10px 20px; */
+  outline: 0;
+  border: 1;
+  color: #fefefe;
+  background-color: #ADD2D8;
+  border-radius: 5px;
+  font-size: 13px;
+  line-height: 22px;
+  /* box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 8px 6px -6px black; */
+} 
+.button-efeks {
+  position: relative;
+  padding: 1em 4em 1em 2em;
+  background: var(--colors_sites);
+  color: #fff;
+}
+.button-efeks:before, .button-efeks:after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 1em;
+  top: 50%;
+  margin-top: -0.7em;
+  width: 1.4em;
+  height: 1.4em;
+  transform: rotate(-45deg);
+  transition: transform 0.5s ease, margin 0.5s ease;
+  border: solid #fff;
+  border-width: 0 0 0.2em;
+}
+.button-efeks:before {
+  border-width: 0 0.2em 0 0;
+}
+.button-efeks:hover:before {
+  transform: rotate(45deg);
+}
+.button-efeks:hover:after {
+  transform: rotate(225deg);
+  margin-top: -0.8em;
+}

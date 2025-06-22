@@ -1,0 +1,377 @@
+
+/* VERSION */
+
+.version_history {  
+	margin-bottom: 1.5rem;
+	padding-bottom: .5rem;
+}
+
+.version_history .big_title {
+	padding: 12px;
+	font-size: 1rem;
+	line-height: 1.2rem;
+	color: #222;
+	position: relative;
+}
+
+.version_history .big_title a {
+	font-size: 12px;
+	float: right;
+	color: #666;
+}
+
+.version_history .big_title h2 {
+	display: inline-block;
+}
+
+.version_history .list {
+	width: 100%;
+	background: var(--putih);
+	box-shadow: 0 1px 2px 0 rgb(0 0 0 / 10%);
+	border-radius: 6px;
+	margin-bottom: 5px;
+	overflow: hidden;
+	position: relative;
+	-webkit-touch-callout: none;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	-ms-user-select: none;
+	-khtml-user-select: none;
+	user-select: none;
+}
+
+.version_history .list:hover {
+	box-shadow: 0 0 6px 0 rgb(0 0 0 / 10%);
+}
+
+.version_history .list .package_info {
+	display: block;
+	color: #222;
+	width: auto;
+	padding: 12px 90px 12px 76px;
+	position: relative;
+	min-height: 72px;
+	cursor: pointer;
+}
+
+.version_history .list .icon {
+	position: absolute;
+	left: 16px;
+	top: 12px;
+	width: 50px;
+	height: 50px;
+	border-radius: 8px;
+	overflow: hidden;
+}
+
+.version_history .list .text {
+	font-size: 12px;
+	line-height: 18px;
+	color: #999;
+	padding-top: 4px;
+	display: block;
+}
+
+.version_history .list .text span {
+	padding-right: 8px;
+}
+
+.version_history .list .title {
+	line-height: 18px;
+	font-size: 16px;
+	overflow: hidden;
+	display: block;
+}
+
+.version_history .list .title .version {
+	font-weight: 700;
+	padding-right: 6px;
+}
+
+.version_history .list .title .name {
+	display: none;
+	width: 100%;
+}
+
+.version_history .list .title span {
+	margin: 2px 0;
+}
+
+.version_history .list .title span.apk,.version_history .list .title span.obb,.version_history .list .title span.xapk,.version_history .list .title span.mod {
+	display: inline-block;
+	height: 24px;
+	line-height: 22px;
+	padding: 0 4px;
+	border-radius: 4px;
+	text-transform: uppercase;
+	border: 1px solid var(--color_button);
+	color: var(--color_link);
+	font-size: 12px;
+	vertical-align: middle;
+}
+
+.version_history .list .title span.xapk {
+	border-color: var(--color_button);
+	color: var(--color_link);
+}
+
+.version_history .list .title span.obb {
+	border: solid 1px var(--color_border);
+	color: var(--color_link);
+}
+
+.version_history .list .title span.mod {
+	border: solid 1px var(--color_mods_text);
+	color: var(--color_mods_text);
+}
+
+.version_history .list .v_h_button {
+	position: absolute;
+	right: 0;
+	top: 22px;
+	text-align: right;
+	padding-right: 8px;
+	z-index: 10;
+}
+
+
+.info_box .down-button,.version_history .list .v_h_button a,.version_history .list .v_h_button button {
+	display: inline-block;
+	position: relative;
+	height: 32px;
+	line-height: 30px;
+	width: 32px;
+	border-radius: 50%;
+	border: 1px solid #ebedef;
+	cursor: pointer;
+	vertical-align: top;
+	margin: 0 4px;
+	overflow: hidden;
+	color: var(--putih);
+	text-align: center;
+	font-size: 12px;
+}
+
+.version_history .list .v_h_button .info {
+	width: 20px;
+	height: 20px;
+	border: 1px solid #c1c1c1;
+	position: relative;
+	background: 0 0;
+	margin-top: 7px;
+}
+
+.version_history .list .v_h_button .info:before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: #c1c1c1;
+	-webkit-mask: url(/images/info.svg) no-repeat center;
+	mask: url(/images/info.svg) no-repeat center;
+	-webkit-mask-size: 14px;
+	mask-size: 14px;
+	background-size: 14px;
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+
+.info_box .down-button,.version_history .list .down {
+	border: none;
+	background: var(--color_button);
+	/* background-image: linear-gradient(90deg,var(--color_button),var(--color_button)); */
+}
+
+.version_history .list .down:hover  { 
+	background: black;
+}
+
+.info_box .down-button:before,.version_history .list .down:before {
+	content: '';
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-color: var(--putih);
+	-webkit-mask: var(--download_icon) no-repeat center;
+	mask: var(--download_icon) no-repeat center;
+	-webkit-mask-size: 12px;
+	mask-size: 12px;
+	background-size: 12px;
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+
+.version_history .list .down span {
+	display: none;
+}
+
+.version_history .list .down:hover,.version_history .list .info:hover {
+	opacity: .9;
+}
+
+.version_history .list .info_box {
+	display: none;
+	border-top: 1px solid #e0e7f0;
+	background: #fcfdfd;
+	border-radius: 4px;
+	font-size: 13px;
+	padding: 16px;
+	overflow-x: scroll;
+}
+
+.version_history .list .info_box.show {
+	display: block;
+}
+
+.version_history .list .info_box p {
+	padding: 4px 0;
+	position: relative;
+}
+
+.version_history .list .info_box strong {
+	font-weight: 600;
+	color: #425761;
+}
+
+.version_history .list .info_box .whats_new {
+	font-size: 12px;
+	line-height: 18px;
+	background: #f6f9fc;
+	padding: 12px;
+	margin-top: 4px;
+}
+
+.info_box .table {
+	box-sizing: border-box;
+	display: table;
+	width: 100%;
+	height: 100%;
+	max-width: 100%;
+}
+
+.info-fix {
+	position: relative;
+}
+
+.version_history .list .info_box.info-download {
+	position: absolute;
+	display: none;
+	padding-left: 0;
+	top: 0;
+	right: 0;
+	overflow: revert;
+}
+
+.version_history .info-download .table:before {
+	content: '';
+	width: 20%;
+	height: 100%;
+	position: absolute;
+	left: -20%;
+	top: 0;
+	background: linear-gradient(to right ,rgba(255,255,255,0),var(--putih));
+}
+
+.version_history .more-apk {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 43px;
+	position: relative;
+	height: 22px;
+}
+
+.version_history .list .info_box.show_amp {
+	display: block;
+}
+
+.version_history .word-break {
+	word-break: break-all;
+}
+
+.version_history .more-apk span:after,.version_history .more-apk span:before {
+	content: '';
+	position: absolute;
+	left: 50%;
+}
+
+.version_history .more-apk span:before {
+	top: 0;
+	transform: translateX(-3px);
+}
+
+.version_history .more-apk span:after {
+	bottom: 0;
+	transform: translateX(-3px);
+}
+
+.version_history .more-apk span,.version_history .more-apk span:after,.version_history .more-apk span:before {
+	width: 5px;
+	height: 5px;
+	border-radius: 50%;
+	background-color: #9d9d9d;
+}
+
+@media (min-width:720px) {
+	.version_history .list .package_info {
+		padding-right: 160px;
+	}
+
+	.version_history .more-apk {
+		display: none;
+	}
+
+	.version_history .list .title .name {
+		display: inline-block;
+		padding-bottom: 4px;
+		width: auto;
+	}
+
+	.version_history .list .v_h_button a.down,.version_history .list .v_h_button button.down {
+		width: 100px;
+		border-radius: 6px;
+	}
+
+	.version_history .list .v_h_button a.down:before,.version_history .list .v_h_button button.down:before {
+		display: none;
+	}
+
+	.version_history .list .down span {
+		display: inline-block;
+		vertical-align: top;
+	}
+}
+
+@media (max-width:720px) {
+	.version_history .list .v_h_button button.down {
+		display: none;
+	}
+}
+
+@media (max-width:565px) {
+	.version_history .list .info_box.info-download {
+		display: block;
+	}
+
+	.info_box .table-cell .down_text {
+		display: none;
+	}
+
+	.info_box .down-button {
+		display: inline-block;
+	}
+
+	.version_history .list .info_box.show_amp_download {
+		display: block;
+	}
+}
+
+@media (min-width:565px) {
+	.version_history .list .info_box.show_amp_download {
+		display: none;
+	}
+}
