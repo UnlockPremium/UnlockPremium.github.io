@@ -1,55 +1,228 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<title>Melon Playground Mods</title>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Melon Playground Mods Workshop</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f7;
+    margin: 0; padding: 20px;
+    color: #222;
+  }
+  h2.wp-block-heading {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  .mods-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  ul.wp-block-latest-posts__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.wp-block-latest-posts__list li {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .wp-block-latest-posts__featured-image {
+    padding: 1rem 1rem 0 1rem;
+  }
+  .wp-block-latest-posts__featured-image img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 6px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .wp-block-latest-posts__featured-image img:hover {
+    transform: scale(1.05);
+  }
+  .wp-block-latest-posts__post-title {
+    margin: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2a2a2a;
+    text-decoration: none;
+  }
+  .wp-block-latest-posts__post-title:hover {
+    color: #007acc;
+  }
+  .wp-block-latest-posts__post-date {
+    font-size: 0.85rem;
+    color: #666;
+    padding-bottom: 1rem;
+  }
+  @media (max-width: 600px) {
+    ul.wp-block-latest-posts__list {
+      grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+    }
+    .wp-block-latest-posts__featured-image img {
+      max-width: 100px;
+      max-height: 100px;
+    }
+  }
+</style>
 </head>
-<body style="background-color:#1a1a1a; color:#fff; font-family:sans-serif; padding:2rem">
-<h1 style="color:#f39c12; text-align:center">Melon Playground Mods</h1>
-<div class="mods-grid" style="display:grid; grid-template-columns:repeat(auto-fill,minmax(280px,1fr)); gap:30px; max-width:1400px; margin:0 auto">
-<div class="mod-card">
-<div class="mod-thumb-container">
-<img alt="Gray melon girl" class="mod-thumb" src="https://melmod.com/imgs/gray-melon-girl.png"/>
-</div>
-<div class="mod-info">
-<a class="mod-title" href="https://melmod.com/gray-melon-girl/">Gray melon girl</a>
-<div class="mod-meta">
-<span>Character</span>
-<time class="mod-date" datetime="2025-06-14">2025-06-14</time>
-</div>
-<a class="download-btn" href="https://melmod.com/gray-melon-girl/">Download</a>
-</div>
-</div>
+<body>
+<section class="mods-container">
+  <h2 class="wp-block-heading"><strong>Melon Playground Mods</strong></h2>
 
-<div class="mod-card">
-<div class="mod-thumb-container">
-<img alt="Mafioso" class="mod-thumb" src="https://melmod.com/imgs/mafioso.png"/>
-</div>
-<div class="mod-info">
-<a class="mod-title" href="https://melmod.com/mafioso/">Mafioso</a>
-<div class="mod-meta">
-<span>Character</span>
-<time class="mod-date" datetime="2025-06-14">2025-06-14</time>
-</div>
-<a class="download-btn" href="https://melmod.com/mafioso/">Download</a>
-</div>
-</div>
+  <ul class="wp-block-latest-posts__list is-grid columns-3 has-dates wp-block-latest-posts has-medium-font-size">
 
-<div class="mod-card">
-<div class="mod-thumb-container">
-<img alt="Final destination" class="mod-thumb" src="https://melmod.com/imgs/final-destination.png"/>
-</div>
-<div class="mod-info">
-<a class="mod-title" href="https://melmod.com/final-destination/">Final destination</a>
-<div class="mod-meta">
-<span>Map</span>
-<time class="mod-date" datetime="2025-06-14">2025-06-14</time>
-</div>
-<a class="download-btn" href="https://melmod.com/final-destination/">Download</a>
-</div>
-</div>
-</div>
-</body>
-</html>
+    <!-- Mod #1 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/gray-melon-girl/" aria-label="Gray melon girl">
+          <img loading="lazy" decoding="async" src="images/Gray-melon-girl-300x212.webp" alt="Gray melon girl for melon playground mods" title="Gray melon girl for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/gray-melon-girl/">Gray melon girl</a>
+      <time datetime="2025-06-14T06:59:07+00:00" class="wp-block-latest-posts__post-date">June 14, 2025</time>
+    </li>
+
+    <!-- Mod #2 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/mafioso/" aria-label="mafioso">
+          <img loading="lazy" decoding="async" src="images/mafioso-300x217.webp" alt="mafioso for melon playground mods" title="mafioso for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/mafioso/">mafioso</a>
+      <time datetime="2025-06-14T06:47:45+00:00" class="wp-block-latest-posts__post-date">June 14, 2025</time>
+    </li>
+
+    <!-- Mod #3 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/final-destination/" aria-label="Final destination">
+          <img loading="lazy" decoding="async" src="images/Final-destination-300x137.webp" alt="Final destination for melon playground mods" title="Final destination for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/final-destination/">Final destination</a>
+      <time datetime="2025-06-14T06:35:29+00:00" class="wp-block-latest-posts__post-date">June 14, 2025</time>
+    </li>
+
+    <!-- Mod #4 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/1x1x1x1/" aria-label="1x1x1x1">
+          <img loading="lazy" decoding="async" src="images/1x1x1x1-300x184.webp" alt="1x1x1x1 for melon playground mods" title="1x1x1x1 for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/1x1x1x1/">1x1x1x1</a>
+      <time datetime="2025-06-14T06:30:31+00:00" class="wp-block-latest-posts__post-date">June 14, 2025</time>
+    </li>
+
+    <!-- Mod #5 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/007n7/" aria-label="007n7">
+          <img loading="lazy" decoding="async" src="images/007n7-forsaken-300x147.webp" alt="007n7 forsaken for melon playground mods" title="007n7 forsaken for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/007n7/">007n7</a>
+      <time datetime="2025-06-14T06:20:54+00:00" class="wp-block-latest-posts__post-date">June 14, 2025</time>
+    </li>
+
+    <!-- Mod #6 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/dead-rails/" aria-label="Dead Rails">
+          <img loading="lazy" decoding="async" src="images/Dead-Rails-300x169.webp" alt="Dead Rails for melon playground mods" title="Dead Rails for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/dead-rails/">Dead Rails</a>
+      <time datetime="2025-04-19T02:20:13+00:00" class="wp-block-latest-posts__post-date">April 19, 2025</time>
+    </li>
+
+    <!-- Mod #7 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/mega-dandys-world-pack/" aria-label="Mega Dandy’s World Pack">
+          <img loading="lazy" decoding="async" src="images/Mega-Dandys-World-Pack-300x168.webp" alt="Mega Dandy’s World Pack for melon playground mods" title="Mega Dandy’s World Pack for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/mega-dandys-world-pack/">Mega Dandy’s World Pack</a>
+      <time datetime="2025-04-13T03:22:49+00:00" class="wp-block-latest-posts__post-date">April 13, 2025</time>
+    </li>
+
+    <!-- Mod #8 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/moving-walls-map/" aria-label="Moving walls MAP">
+          <img loading="lazy" decoding="async" src="images/Moving-walls-300x127.webp" alt="Moving walls for melon playground mods" title="Moving walls MAP for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/moving-walls-map/">Moving walls MAP</a>
+      <time datetime="2025-03-27T22:51:32+00:00" class="wp-block-latest-posts__post-date">March 27, 2025</time>
+    </li>
+
+    <!-- Mod #9 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/eater-melon-map/" aria-label="Eater melon map">
+          <img loading="lazy" decoding="async" src="images/Eater-melon-map-272x300.webp" alt="Eater melon map for melon playground mods" title="Eater melon map for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/eater-melon-map/">Eater melon map</a>
+      <time datetime="2025-03-27T21:57:58+00:00" class="wp-block-latest-posts__post-date">March 27, 2025</time>
+    </li>
+
+    <!-- Mod #10 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/invincible-by-kim/" aria-label="INVINCIBLE BY KIM">
+          <img loading="lazy" decoding="async" src="images/INVINCIBLE-300x155.webp" alt="INVINCIBLE for melon playground mods" title="INVINCIBLE BY KIM for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/invincible-by-kim/">INVINCIBLE BY KIM</a>
+      <time datetime="2025-03-17T12:17:01+00:00" class="wp-block-latest-posts__post-date">March 17, 2025</time>
+    </li>
+
+    <!-- Mod #11 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/conjoined-melon/" aria-label="conjoined melon">
+          <img loading="lazy" decoding="async" src="images/conjoined-melon-300x289.webp" alt="conjoined melon for melon playground mods" title="conjoined melon for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/conjoined-melon/">conjoined melon</a>
+      <time datetime="2025-03-17T07:04:58+00:00" class="wp-block-latest-posts__post-date">March 17, 2025</time>
+    </li>
+
+    <!-- Mod #12 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/blue-suit-invincible-atom-eve-and-her-energy-blast/" aria-label="Blue Suit invincible, Atom eve and her Energy Blast">
+          <img loading="lazy" decoding="async" src="images/Blue-Suit-invincible-Atom-eve-and-her-Energy-Blast-300x300.webp" alt="Blue Suit invincible Atom eve and her Energy Blast for melon playground mods" title="Blue Suit invincible, Atom eve and her Energy Blast for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/blue-suit-invincible-atom-eve-and-her-energy-blast/">Blue Suit invincible, Atom eve and her Energy Blast</a>
+      <time datetime="2025-03-16T22:07:53+00:00" class="wp-block-latest-posts__post-date">March 16, 2025</time>
+    </li>
+
+    <!-- Mod #13 -->
+    <li>
+      <div class="wp-block-latest-posts__featured-image aligncenter">
+        <a href="https://melmod.com/turbo-3000/" aria-label="Turbo 3000">
+          <img loading="lazy" decoding="async" src="images/Turbo-3000-300x207.webp" alt="Turbo 3000 for melon playground mods" title="Turbo 3000 for melon playground mods" />
+        </a>
+      </div>
+      <a class="wp-block-latest-posts__post-title" href="https://melmod.com/turbo-3000/">Turbo 3000</a>
+      <time d
