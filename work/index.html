@@ -1,332 +1,89 @@
-
 <!DOCTYPE html>
-<html lang="en-US" prefix="og: https://ogp.me/ns#">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Melmod - Free Melon Sandbox & Melon Playground Mods Download</title>
-    <meta name="description" content="Melmod Offers you Android/IOS Melon Sandbox & Melon Playground Mods Download Free">
-    
-    <style>
-        /* WORKSHOP-STYLE ENHANCEMENTS */
-        :root {
-            --workshop-bg: #1a1a1a;
-            --workshop-panel: #2c2c2c;
-            --workshop-border: #3a3a3a;
-            --workshop-highlight: #f39c12;
-            --workshop-text: #e0e0e0;
-            --workshop-text-dim: #a0a0a0;
-            --workshop-button: #e67e22;
-            --workshop-button-hover: #f1c40f;
-        }
-        
-        body {
-            background-color: var(--workshop-bg);
-            color: var(--workshop-text);
-            font-family: 'Roboto', Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            line-height: 1.6;
-        }
-        
-        /* Workshop header styling */
-        .workshop-header {
-            background: linear-gradient(145deg, #2c3e50, #1a1a1a);
-            border-bottom: 3px solid var(--workshop-highlight);
-            padding: 20px 0;
-            text-align: center;
-        }
-        
-        .workshop-title {
-            color: var(--workshop-highlight);
-            font-size: 2.8rem;
-            margin: 0 0 10px;
-            text-shadow: 0 0 10px rgba(243, 156, 18, 0.5);
-        }
-        
-        .workshop-subtitle {
-            color: var(--workshop-text);
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        /* Navigation styling */
-        #site-navigation {
-            background-color: rgba(30, 30, 30, 0.95);
-            border-radius: 12px;
-            margin: 20px auto;
-            max-width: 95%;
-            padding: 10px 25px;
-        }
-        
-        .main-nav ul li a {
-            color: var(--workshop-highlight);
-            font-weight: 700;
-            text-shadow: 0 0 5px rgba(243, 156, 18, 0.4);
-            padding: 12px 20px;
-            border-radius: 8px;
-            transition: all 0.3s ease;
-        }
-        
-        .main-nav ul li a:hover {
-            background: rgba(243, 156, 18, 0.15);
-            transform: translateY(-2px);
-        }
-        
-        /* Mod grid styling */
-        .mods-container {
-            max-width: 1400px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        
-        .mods-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        
-        .mod-card {
-            background: rgba(30, 30, 40, 0.8);
-            border-radius: 12px;
-            overflow: hidden;
-            border: 1px solid var(--workshop-border);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-        
-        .mod-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 24px rgba(243, 156, 18, 0.2);
-            border-color: var(--workshop-highlight);
-        }
-        
-        .mod-thumb {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-bottom: 3px solid var(--workshop-highlight);
-            display: block;
-        }
-        
-        .mod-info {
-            padding: 18px;
-        }
-        
-        .mod-title {
-            color: var(--workshop-highlight);
-            font-size: 1.4rem;
-            margin: 0 0 10px;
-            font-weight: 700;
-            text-decoration: none;
-            display: block;
-        }
-        
-        .mod-title:hover {
-            text-decoration: underline;
-        }
-        
-        .mod-meta {
-            display: flex;
-            justify-content: space-between;
-            color: var(--workshop-text-dim);
-            font-size: 0.9rem;
-            margin-bottom: 15px;
-        }
-        
-        .download-btn {
-            display: block;
-            background: linear-gradient(to right, var(--workshop-button), var(--workshop-highlight));
-            color: #1a1a1a;
-            text-align: center;
-            padding: 12px;
-            border-radius: 6px;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            text-decoration: none !important;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-        }
-        
-        .download-btn:hover {
-            background: linear-gradient(to right, var(--workshop-highlight), var(--workshop-button));
-            box-shadow: 0 0 15px rgba(230, 126, 34, 0.5);
-        }
-        
-        /* Featured section styling */
-        .featured-section {
-            max-width: 1200px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        
-        .featured-header {
-            color: var(--workshop-highlight);
-            font-size: 2.2rem;
-            text-align: center;
-            margin: 0 0 30px;
-            position: relative;
-        }
-        
-        .featured-header::after {
-            content: '';
-            display: block;
-            width: 100px;
-            height: 4px;
-            background: var(--workshop-highlight);
-            margin: 10px auto;
-            border-radius: 2px;
-        }
-        
-        /* Category tags */
-        .category-tags {
-            display: flex;
-            gap: 10px;
-            margin: 25px 0;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        
-        .tag {
-            background: rgba(243, 156, 18, 0.15);
-            color: var(--workshop-highlight);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            border: 1px solid var(--workshop-highlight);
-            cursor: pointer;
-            transition: all 0.2s ease;
-        }
-        
-        .tag:hover, .tag.active {
-            background: rgba(243, 156, 18, 0.3);
-        }
-        
-        /* Search styling */
-        .workshop-search {
-            max-width: 600px;
-            margin: 30px auto;
-            position: relative;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 15px 20px;
-            border-radius: 50px;
-            border: 2px solid var(--workshop-border);
-            background: rgba(40, 40, 40, 0.8);
-            color: var(--workshop-text);
-            font-size: 1.1rem;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: var(--workshop-highlight);
-        }
-        
-        /* Footer styling */
-        .site-footer {
-            background: rgba(20, 20, 20, 0.9);
-            padding: 40px 0;
-            margin-top: 60px;
-            border-top: 2px solid var(--workshop-highlight);
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            padding: 0 20px;
-        }
-        
-        .footer-section {
-            flex: 1;
-            min-width: 300px;
-            margin-bottom: 30px;
-            padding: 0 15px;
-        }
-        
-        .footer-title {
-            color: var(--workshop-highlight);
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            position: relative;
-        }
-        
-        .footer-title::after {
-            content: '';
-            position: absolute;
-            bottom: -8px;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: var(--workshop-highlight);
-        }
-        
-        .footer-links a {
-            color: var(--workshop-text-dim);
-            display: block;
-            margin-bottom: 10px;
-            text-decoration: none;
-            transition: color 0.2s;
-        }
-        
-        .footer-links a:hover {
-            color: var(--workshop-highlight);
-        }
-        
-        .copyright {
-            text-align: center;
-            padding: 20px 0;
-            color: var(--workshop-text-dim);
-            font-size: 0.9rem;
-            border-top: 1px solid var(--workshop-border);
-            margin-top: 30px;
-        }
-        
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .mods-grid {
-                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            }
-            
-            .workshop-title {
-                font-size: 2.2rem;
-            }
-            
-            .footer-section {
-                min-width: 100%;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .mods-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .workshop-title {
-                font-size: 1.8rem;
-            }
-        }
-    </style>
-    
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Melon Playground Mods Workshop</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    background: #f5f5f7;
+    margin: 0; padding: 20px;
+    color: #222;
+  }
+  h2.wp-block-heading {
+    text-align: center;
+    margin-bottom: 1rem;
+    font-weight: 700;
+    font-size: 2rem;
+  }
+  .mods-container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+  ul.wp-block-latest-posts__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  ul.wp-block-latest-posts__list li {
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .wp-block-latest-posts__featured-image {
+    padding: 1rem 1rem 0 1rem;
+  }
+  .wp-block-latest-posts__featured-image img {
+    max-width: 150px;
+    max-height: 150px;
+    border-radius: 6px;
+    object-fit: contain;
+    transition: transform 0.3s ease;
+    cursor: pointer;
+  }
+  .wp-block-latest-posts__featured-image img:hover {
+    transform: scale(1.05);
+  }
+  .wp-block-latest-posts__post-title {
+    margin: 0.5rem 1rem;
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #2a2a2a;
+    text-decoration: none;
+  }
+  .wp-block-latest-posts__post-title:hover {
+    color: #007acc;
+  }
+  .wp-block-latest-posts__post-date {
+    font-size: 0.85rem;
+    color: #666;
+    padding-bottom: 1rem;
+  }
+  @media (max-width: 600px) {
+    ul.wp-block-latest-posts__list {
+      grid-template-columns: repeat(auto-fill,minmax(140px,1fr));
+    }
+    .wp-block-latest-posts__featured-image img {
+      max-width: 100px;
+      max-height: 100px;
+    }
+  }
+</style>
 </head>
-<body class="home wp-singular page-template-default page page-id-2 wp-custom-logo wp-embed-responsive wp-theme-generatepress post-image-aligned-center slideout-enabled slideout-mobile sticky-menu-slide sticky-enabled both-sticky-menu mobile-header mobile-header-logo mobile-header-sticky no-sidebar nav-below-header one-container header-aligned-center dropdown-hover full-width-content" itemtype="https://schema.org/WebPage" itemscope="">
+<body>
+<section class="mods-container">
+  <h2 class="wp-block-heading"><strong>Melon Playground Mods</strong></h2>
 
-    <!-- Workshop Header -->
-    <header class="workshop-header">
-        <h1 class="workshop-title">MELON WORKSHOP</h1>
-        <p class="workshop-subtitle">Discover and install community-created mods to enhance your Melon Playground experience</p>
-    </header>
+  <ul class="wp-block-latest-posts__list is-grid columns-3 has-dates wp-block-latest-posts has-medium-font-size">
 
     <!-- All Mods Section -->
     <section class="mods-container">
