@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Melmod - Free Melon Sandbox & Melon Playground Mods Download</title>
+    <meta name="description" content="Melmod Offers you Android/IOS Melon Sandbox & Melon Playground Mods Download Free">
+    
+    <style>
+        /* WORKSHOP-STYLE ENHANCEMENTS */
+        :root {
+            --workshop-bg: #1a1a1a;
+            --workshop-panel: #2c2c2c;
+            --workshop-border: #3a3a3a;
+            --workshop-highlight: #f39c12;
+            --workshop-text: #e0e0e0;
+            --workshop-text-dim: #a0a0a0;
+            --workshop-button: #e67e22;
+            --workshop-button-hover: #f1c40f;
+            --zoom-scale: 1.05;
+        }
+        
+        body {
+            background-color: var(--workshop-bg);
+            color: var(--workshop-text);
+            font-family: 'Roboto', Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            background-image: radial-gradient(circle at 20% 30%, rgba(44, 62, 80, 0.1) 0px, transparent 50%), 
+                              radial-gradient(circle at 80% 70%, rgba(243, 156, 18, 0.05) 0px, transparent 50%);
+        }
+        
+        /* Workshop header styling */
+        .workshop-header {
+            background: linear-gradient(145deg, #2c3e50, #1a1a1a);
+            border-bottom: 3px solid var(--workshop-highlight);
+            padding: 30px 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .workshop-header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, transparent, var(--workshop-highlight), transparent);
+        }
+        
+        .workshop-title {
+            color: var(--workshop-highlight);
+            font-size: 3.2rem;
+            margin: 0 0 15px;
+            text-shadow: 0 0 15px rgba(243, 156, 18, 0.7);
+            letter-spacing: 1px;
+            position: relative;
+            display: inline-block;
+        }
+        
+        .workshop-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: var(--workshop-highlight);
+            border-radius: 2px;
+        }
+        
+        .workshop-subtitle {
+            color: var(--workshop-text);
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 20px;
+            opacity: 0.9;
+        }
+        
+        /* Navigation styling */
+        #site-navigation {
+            background-color: rgba(30, 30, 30, 0.95);
+            border-radius: 12px;
+            margin: 25px auto;
+            max-width: 95%;
+            padding: 12px 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+        }
+        
+        .main-nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex-wrap: wrap;
+        }
+        
+        .main-nav ul li {
+            margin: 5px 10px;
+        }
+        
+        .main-nav ul li a {
+            color: var(--workshop-highlight);
+            font-weight: 700;
+            text-shadow: 0 0 5px rgba(243, 156, 18, 0.4);
+            padding: 12px 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: block;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .main-nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--workshop-highlight);
+            transform: translateY(5px);
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+        
+        .main-nav ul li a:hover {
+            background: rgba(243, 156, 18, 0.15);
+            transform: translateY(-3px);
+        }
+        
+        .main-nav ul li a:hover::after {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        /* Search styling */
+        .workshop-search {
+            max-width: 650px;
+            margin: 40px auto 30px;
+            position: relative;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 16px 25px;
+            border-radius: 50px;
+            border: 2px solid var(--workshop-border);
+            background: rgba(40, 40, 40, 0.8);
+            color: var(--workshop-text);
+            font-size: 1.1rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: var(--workshop-highlight);
+            box-shadow: 0 0 20px rgba(230, 126, 34, 0.3);
+        }
+        
+        /* Category tags */
+        .category-tags {
+            display: flex;
+            gap: 12px;
+            margin: 30px 0;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 0 20px;
+        }
+        
+        .tag {
+            background: rgba(243, 156, 18, 0.15);
+            color: var(--workshop-highlight);
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 0.95rem;
+            border: 1px solid var(--workshop-highlight);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            font-weight: 600;
+        }
+        
+        .tag:hover, .tag.active {
+            background: rgba(243, 156, 18, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(243, 156, 18, 0.2);
+        }
+        
+        /* Mod grid styling */
+        .mods-container {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .section-title {
+            color: var(--workshop-highlight);
+            font-size: 2.4rem;
+            text-align: center;
+            margin: 0 0 40px;
+            position: relative;
+        }
+        
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--workshop-highlight);
+            margin: 15px auto 0;
+            border-radius: 2px;
+        }
+        
+        .mods-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .mod-card {
+            background: rgba(30, 30, 40, 0.8);
+            border-radius: 15px;
+            overflow: hidden;
+            border: 1px solid var(--workshop-border);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            transform: translateY(0);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mod-card:hover {
+            transform: translateY(-10px) scale(var(--zoom-scale));
+            box-shadow: 0 15px 35px rgba(243, 156, 18, 0.25);
+            border-color: var(--workshop-highlight);
+            z-index: 10;
+        }
+        
+        .mod-thumb-container {
+            position: relative;
+            overflow: hidden;
+            height: 200px;
+        }
+        
+        .mod-thumb {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        
+        .mod-card:hover .mod-thumb {
+            transform: scale(1.1);
+        }
+        
+        .mod-info {
+            padding: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .mod-title {
+            color: var(--workshop-highlight);
+            font-size: 1.5rem;
+            margin: 0 0 12px;
+            font-weight: 700;
+            text-decoration: none;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        
+        .mod-title:hover {
+            color: var(--workshop-button-hover);
+            text-decoration: underline;
+        }
+        
+        .mod-meta {
+            display: flex;
+            justify-content: space-between;
+            color: var(--workshop-text-dim);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+        }
+        
+        .download-btn {
+            display: block;
+            background: linear-gradient(to right, var(--workshop-button), var(--workshop-highlight));
+            color: #1a1a1a;
+            text-align: center;
+            padding: 14px;
+            border-radius: 8px;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: auto;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .download-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .download-btn:hover {
+            background: linear-gradient(to right, var(--workshop-highlight), var(--workshop-button));
+            box-shadow: 0 0 20px rgba(230, 126, 34, 0.6);
+            transform: translateY(-3px);
+        }
+        
+        .download-btn:hover::after {
+            left: 100%;
+        }
+        
+        /* Featured section styling */
+        .featured-section {
+            max-width: 1200px;
+            margin: 60px auto;
+            padding: 0 20px;
+        }
+        
+        .featured-header {
+            color: var(--workshop-highlight);
+            font-size: 2.4rem;
+            text-align: center;
+            margin: 0 0 40px;
+            position: relative;
+        }
+        
+        .featured-header::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background: var(--workshop-highlight);
+            margin: 15px auto;
+            border-radius: 2px;
+        }
+        
+        /* Footer styling */
+        .site-footer {
+            background: rgba(20, 20, 20, 0.9);
+            padding: 50px 0 0;
+            margin-top: 80px;
+            border-top: 3px solid var(--workshop-highlight);
+            position: relative;
+        }
+        
+        .site-footer::before {
+            content: '';
+            position: absolute;
+            top: -3px;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, transparent, var(--workshop-highlight), transparent);
+        }
+        
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            padding: 0 20px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 40px;
+            padding: 0 20px;
+        }
+        
+        .footer-title {
+            color: var(--workshop-highlight);
+            font-size: 1.5rem;
+            margin-bottom: 25px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+        
+        .footer-title::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: var(--workshop-highlight);
+        }
+        
+        .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        
+        .footer-links li {
+            margin-bottom: 12px;
+        }
+        
+        .footer-links a {
+            color: var(--workshop-text-dim);
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-block;
+        }
+        
+        .footer-links a:hover {
+            color: var(--workshop-highlight);
+            transform: translateX(5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding: 30px 0;
+            color: var(--workshop-text-dim);
+            font-size: 0.95rem;
+            border-top: 1px solid var(--workshop-border);
+            margin-top: 30px;
+        }
+        
+        /* Scroll to top button */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--workshop-button);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+            z-index: 1000;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+        
+        .scroll-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .scroll-top:hover {
+            background: var(--workshop-highlight);
+            transform: translateY(-5px);
+        }
+        
+        .scroll-top svg {
+            width: 24px;
+            height: 24px;
+            fill: #1a1a1a;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .mods-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .mods-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+            
+            .workshop-title {
+                font-size: 2.5rem;
+            }
+            
+            .footer-section {
+                min-width: 100%;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .mods-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .workshop-title {
+                font-size: 2rem;
+            }
+            
+            .workshop-subtitle {
+                font-size: 1.1rem;
+            }
+            
+            .main-nav ul li a {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Workshop Header -->
+    <header class="workshop-header">
+        <h1 class="workshop-title">MELON WORKSHOP</h1>
+        <p class="workshop-subtitle">Discover and install community-created mods to enhance your Melon Playground experience</p>
+    </header>
+
+    <!-- Navigation -->
+    <nav id="site-navigation" class="main-navigation">
+        <div class="main-nav">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">All Mods</a></li>
+                <li><a href="#">Featured</a></li>
+                <li><a href="#">Categories</a></li>
+                <li><a href="#">Submit Mod</a></li>
+                <li><a href="#">Community</a></li>
+                <li><a href="#">FAQ</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Search -->
+    <div class="workshop-search">
+        <input type="text" class="search-input" placeholder="Search mods...">
+    </div>
+    
+    <!-- Categories -->
+    <div class="category-tags">
+        <div class="tag active">All Mods</div>
+        <div class="tag">Characters</div>
+        <div class="tag">Maps</div>
+        <div class="tag">Weapons</div>
+        <div class="tag">Vehicles</div>
+        <div class="tag">Animals</div>
+        <div class="tag">Tools</div>
+        <div class="tag">Popular</div>
+    </div>
+    
+    <!-- Featured Mods -->
+    <section class="featured-section">
+        <h2 class="featured-header">Featured Mods</h2>
+        <div class="mods-grid">
+            <!-- Featured Mod 1 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Featured Mod">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="#">Gray Melon Girl</a>
+                    <div class="mod-meta">
+                        <span>Character</span>
+                        <time datetime="2025-06-14">June 14, 2025</time>
+                    </div>
+                    <p>A unique character with special abilities and custom animations</p>
+                    <a class="download-btn" href="#">Download</a>
+                </div>
+            </div>
+            
+            <!-- Featured Mod 2 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Featured Mod">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="#">Final Destination Map</a>
+                    <div class="mod-meta">
+                        <span>Map</span>
+                        <time datetime="2025-06-14">June 14, 2025</time>
+                    </div>
+                    <p>A challenging battle arena with interactive environment</p>
+                    <a class="download-btn" href="#">Download</a>
+                </div>
+            </div>
+            
+            <!-- Featured Mod 3 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Featured Mod">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="#">Mega Dandy's World Pack</a>
+                    <div class="mod-meta">
+                        <span>Collection</span>
+                        <time datetime="2025-04-13">April 13, 2025</time>
+                    </div>
+                    <p>Complete set of characters, items and environments</p>
+                    <a class="download-btn" href="#">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- All Mods Section -->
+    <section class="mods-container">
+        <h2 class="section-title">All Melon Playground Mods</h2>
+        
+        <div class="mods-grid">
+            <!-- Mod 1 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Gray melon girl">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="https://melmod.com/gray-melon-girl/">Gray melon girl</a>
+                    <div class="mod-meta">
+                        <span>Character</span>
+                        <time datetime="2025-06-14">June 14, 2025</time>
+                    </div>
+                    <a class="download-btn" href="https://melmod.com/gray-melon-girl/">Download</a>
+                </div>
+            </div>
+            
+            <!-- Mod 2 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="mafioso">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="https://melmod.com/mafioso/">Mafioso</a>
+                    <div class="mod-meta">
+                        <span>Character</span>
+                        <time datetime="2025-06-14">June 14, 2025</time>
+                    </div>
+                    <a class="download-btn" href="https://melmod.com/mafioso/">Download</a>
+                </div>
+            </div>
+            
+            <!-- Mod 3 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Final destination">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="https://melmod.com/final-destination/">Final destination</a>
+                    <div class="mod-meta">
+                        <span>Map</span>
+                        <time datetime="2025-06-14">June 14, 2025</time>
+                    </div>
+                    <a class="download-btn" href="https://melmod.com/final-destination/">Download</a>
+                </div>
+            </div>
+            
+            <!-- Mod 4 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="1x1x1x1">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="https://melmod.com/1x1x1x1/">1x1x1x1</a>
+                    <div class="mod-meta">
+                        <span>Tool</span>
+                        <time datetime="2025-06-14">June 14, 2025</time>
+                    </div>
+                    <a class="download-btn" href="https://melmod.com/1x1x1x1/">Download</a>
+                </div>
+            </div>
+            
+            <!-- Mod 5 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="007n7">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="https://melmod.com/007n7/">007n7</a>
+                    <div class="mod-meta">
+                        <span>Character</span>
+                        <time datetime="2025-06-14">June 14, 2025</time>
+                    </div>
+                    <a class="download-btn" href="https://melmod.com/007n7/">Download</a>
+                </div>
+            </div>
+            
+            <!-- Mod 6 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Dead Rails">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="https://melmod.com/dead-rails/">Dead Rails</a>
+                    <div class="mod-meta">
+                        <span>Map</span>
+                        <time datetime="2025-04-19">April 19, 2025</time>
+                    </div>
+                    <a class="download-btn" href="https://melmod.com/dead-rails/">Download</a>
+                </div>
+            </div>
+            
+            <!-- Mod 7 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Mega Dandy's World Pack">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="https://melmod.com/mega-dandys-world-pack/">Mega Dandy's World Pack</a>
+                    <div class="mod-meta">
+                        <span>Collection</span>
+                        <time datetime="2025-04-13">April 13, 2025</time>
+                    </div>
+                    <a class="download-btn" href="https://melmod.com/mega-dandys-world-pack/">Download</a>
+                </div>
+            </div>
+            
+            <!-- Mod 8 -->
+            <div class="mod-card">
+                <div class="mod-thumb-container">
+                    <img class="mod-thumb" src="https://images.unsplash.com/photo-1534423861386-85a16f5d13fd?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Moving walls MAP">
+                </div>
+                <div class="mod-info">
+                    <a class="mod-title" href="https://melmod.com/moving-walls-map/">Moving walls MAP</a>
+                    <div class="mod-meta">
+                        <span>Map</span>
+                        <time datetime="2025-03-27">March 27, 2025</time>
+                    </div>
+                    <a class="download-btn" href="https://melmod.com/moving-walls-map/">Download</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3 class="footer-title">About Melmod</h3>
+                <p>We provide free, virus-free mods for Melon Playground and Melon Sandbox. Our collection includes NPC mods, weapons, animal mods, cars mods, furniture, tanks, buildings, and more.</p>
+                <p>All mods are thoroughly tested to ensure they're safe for your device.</p>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">All Mods</a></li>
+                    <li><a href="#">Featured Mods</a></li>
+                    <li><a href="#">Submit Mod</a></li>
+                    <li><a href="#">Community</a></li>
+                    <li><a href="#">FAQ</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Categories</h3>
+                <ul class="footer-links">
+                    <li><a href="#">Characters</a></li>
+                    <li><a href="#">Maps</a></li>
+                    <li><a href="#">Weapons</a></li>
+                    <li><a href="#">Vehicles</a></li>
+                    <li><a href="#">Animals</a></li>
+                    <li><a href="#">Tools</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-section">
+                <h3 class="footer-title">Contact</h3>
+                <ul class="footer-links">
+                    <li><a href="mailto:support@melmod.com">support@melmod.com</a></li>
+                    <li><a href="#">Discord Community</a></li>
+                    <li><a href="#">Submit Feedback</a></li>
+                    <li><a href="#">Report Issue</a></li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>© 2025 Melmod.com - All rights reserved</p>
+            <p>The content is from user contributions. For any issues, contact <a href="mailto:mbrkcorp@outlook.com">mbrkcorp@outlook.com</a></p>
+        </div>
+    </footer>
+    
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop">
+        <svg viewBox="0 0 24 24">
+            <path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"></path>
+        </svg>
+    </div>
+    
+    <script>
+        // Scroll to top functionality
+        const scrollTopBtn = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollTopBtn.classList.add('visible');
+            } else {
+                scrollTopBtn.classList.remove('visible');
+            }
+        });
+        
+        scrollTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Card hover effect enhancement
+        const modCards = document.querySelectorAll('.mod-card');
+        
+        modCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.zIndex = '10';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.zIndex = '1';
+            });
+        });
+        
+        // Active category highlighting
+        const tags = document.querySelectorAll('.tag');
+        
+        tags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                tags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
