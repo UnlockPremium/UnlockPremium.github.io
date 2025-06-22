@@ -326,46 +326,7 @@
     <header class="workshop-header">
         <h1 class="workshop-title">MELON WORKSHOP</h1>
         <p class="workshop-subtitle">Discover and install community-created mods to enhance your Melon Playground experience</p>
-        
-        <div class="workshop-search">
-            <input type="text" class="search-input" placeholder="Search mods...">
-        </div>
-        
-        <div class="category-tags">
-            <span class="tag active">All Mods</span>
-            <span class="tag">Characters</span>
-            <span class="tag">Weapons</span>
-            <span class="tag">Maps</span>
-            <span class="tag">Vehicles</span>
-            <span class="tag">Tools</span>
-            <span class="tag">Popular</span>
-            <span class="tag">New</span>
-        </div>
     </header>
-
-    <!-- Featured Mod Section -->
-    <section class="featured-section">
-        <h2 class="featured-header">FEATURED MOD</h2>
-        
-        <div class="featured-mod">
-            <div class="mod-card" style="display: flex; flex-direction: column;">
-                <img src="images/28DEIjI3-Melon-Playground-29.0-150x150.webp" alt="Featured Mod" class="mod-thumb">
-                <div class="mod-info">
-                    <a href="https://melmod.com/melon-playground-18-0melon-pg/" class="mod-title">Melon Playground 29.0</a>
-                    <p>Latest version with Easter event - collect Easter eggs and exchange them for unique rewards!</p>
-                    <div class="mod-meta">
-                        <span>Version: 29.0</span>
-                        <span>Updated: May 30, 2025</span>
-                    </div>
-                    <a href="https://melmod.com/melon-playground-18-0melon-pg/" class="download-btn">Download Now</a>
-                    <div style="display: flex; justify-content: space-between; margin-top: 10px;">
-                        <span>★ 4.8 (1.2K ratings)</span>
-                        <span>↓ 85K downloads</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- All Mods Section -->
     <section class="mods-container">
@@ -1145,59 +1106,15 @@
                 <h3 class="footer-title">About Melmod</h3>
                 <p>We provide free, virus-free mods for Melon Playground and Melon Sandbox. Our collection includes NPC mods, weapons, animal mods, cars mods, furniture, tanks, buildings, and more.</p>
                 <p>All mods are thoroughly tested to ensure they're safe for your device.</p>
-            </div>
-            
-            <div class="footer-section">
-                <h3 class="footer-title">Quick Links</h3>
-                <div class="footer-links">
-                    <a href="https://melmod.com/">Home</a>
-                    <a href="https://melmod.com/mods/">All Mods</a>
-                    <a href="https://melmod.com/how-to-put-mods-in-melon-playground/">Installation Guide</a>
-                    <a href="https://melmod.com/terms-of-use/">Terms of Use</a>
-                    <a href="https://melmod.com/privacy-policy/">Privacy Policy</a>
-                </div>
-            </div>
-            
-            <div class="footer-section">
-                <h3 class="footer-title">Other Resources</h3>
-                <div class="footer-links">
-                    <a href="https://fsavemods.com/">Fruit Playground Mods</a>
-                    <a href="https://melonplayground.net/">Melon Playground PC</a>
-                    <a href="https://fruitmod.com/">Fruit Mod</a>
-                    <a href="https://jennymod.net/">Jenny Mod</a>
-                </div>
-            </div>
+           
         </div>
         
         <div class="copyright">
             <p>© 2025 Melmod.com - All rights reserved</p>
-            <p>The content is from user contributions. For any issues, contact <a href="mailto:xiaoyouwo@gmail.com">xiaoyouwo@gmail.com</a></p>
+            <p>The content is from user contributions. For any issues, contact <a href="mailto:mbrkcorp@outlook.com">mbrkcorp@outlook.com</a></p>
         </div>
     </footer>
 
-    <script>
-        // Simple hover effect enhancement
-        document.querySelectorAll('.mod-card').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-8px)';
-                this.style.boxShadow = '0 12px 24px rgba(243, 156, 18, 0.3)';
-                this.style.borderColor = '#f39c12';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0)';
-                this.style.boxShadow = '0 8px 16px rgba(0, 0, 0, 0.4)';
-                this.style.borderColor = '#3a3a3a';
-            });
-        });
-        
-        // Category tag interaction
-        document.querySelectorAll('.tag').forEach(tag => {
-            tag.addEventListener('click', function() {
-                document.querySelectorAll('.tag').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-    </script>
+   
 </body>
 </html>
