@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Global Offers - Tailored for Your Country</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #1a2a6c);
+            color: #333;
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            display: flex;
+            flex-wrap: wrap;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.3);
+        }
+        
+        .left-panel {
+            flex: 1;
+            min-width: 300px;
+            background: linear-gradient(rgba(26, 42, 108, 0.9), rgba(26, 42, 108, 0.9)), url('https://images.unsplash.com/photo-1534447677768-be436bb09401?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .right-panel {
+            flex: 1;
+            min-width: 300px;
+            padding: 50px 40px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        .logo {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        .logo h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+        }
+        
+        .logo p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+        
+        .features {
+            margin: 30px 0;
+        }
+        
+        .feature {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 25px;
+        }
+        
+        .feature-icon {
+            background: rgba(255, 255, 255, 0.1);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 20px;
+            font-size: 1.5rem;
+        }
+        
+        .feature-text h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+        }
+        
+        .testimonial {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            margin-top: 20px;
+            position: relative;
+        }
+        
+        .testimonial:before {
+            content: """;
+            position: absolute;
+            top: 10px;
+            left: 15px;
+            font-size: 5rem;
+            font-family: Georgia, serif;
+            line-height: 1;
+            opacity: 0.2;
+        }
+        
+        .testimonial p {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        
+        .client {
+            display: flex;
+            align-items: center;
+        }
+        
+        .client img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+            object-fit: cover;
+        }
+        
+        h2 {
+            font-size: 2.2rem;
+            color: #1a2a6c;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        
+        .form-container {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .form-group {
+            margin-bottom: 25px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #1a2a6c;
+        }
+        
+        select, input {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid #e1e1e1;
+            border-radius: 10px;
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        
+        select:focus, input:focus {
+            outline: none;
+            border-color: #1a2a6c;
+        }
+        
+        .btn {
+            display: block;
+            width: 100%;
+            background: linear-gradient(to right, #1a2a6c, #b21f1f);
+            color: white;
+            padding: 16px;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(26, 42, 108, 0.4);
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(26, 42, 108, 0.6);
+        }
+        
+        .country-flags {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 30px 0;
+        }
+        
+        .flag {
+            width: 60px;
+            height: 40px;
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .flag:hover {
+            transform: translateY(-5px);
+        }
+        
+        .flag img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .privacy {
+            text-align: center;
+            font-size: 0.9rem;
+            color: #666;
+            margin-top: 20px;
+        }
+        
+        .privacy a {
+            color: #1a2a6c;
+            text-decoration: none;
+        }
+        
+        .success-message {
+            background: #d4edda;
+            color: #155724;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 20px;
+            display: none;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+            }
+            
+            .left-panel, .right-panel {
+                padding: 30px 20px;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="left-panel">
+            <div class="logo">
+                <h1><i class="fas fa-globe-americas"></i> Global Offers</h1>
+                <p>Tailored promotions for your country</p>
+            </div>
+            
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Country-Specific Offers</h3>
+                        <p>Get the best deals available in your location</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-gift"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Exclusive Deals</h3>
+                        <p>Access promotions not available to the general public</p>
+                    </div>
+                </div>
+                
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="feature-text">
+                        <h3>Secure & Private</h3>
+                        <p>Your information is protected and never shared</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="testimonial">
+                <p>"I was redirected to a perfect offer for my country. Saved me 30% on my purchase!"</p>
+                <div class="client">
+                    <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Sarah Johnson">
+                    <div>
+                        <strong>Sarah Johnson</strong>
+                        <div>London, UK</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="right-panel">
+            <h2>Access Country-Specific Offers</h2>
+            <p style="text-align: center; margin-bottom: 25px; color: #555;">Select your country and enter your email to unlock exclusive offers</p>
+            
+            <div class="country-flags">
+                <div class="flag">
+                    <img src="https://flagcdn.com/w320/us.png" alt="United States">
+                </div>
+                <div class="flag">
+                    <img src="https://flagcdn.com/w320/gb.png" alt="United Kingdom">
+                </div>
+                <div class="flag">
+                    <img src="https://flagcdn.com/w320/ca.png" alt="Canada">
+                </div>
+                <div class="flag">
+                    <img src="https://flagcdn.com/w320/au.png" alt="Australia">
+                </div>
+                <div class="flag">
+                    <img src="https://flagcdn.com/w320/de.png" alt="Germany">
+                </div>
+                <div class="flag">
+                    <img src="https://flagcdn.com/w320/fr.png" alt="France">
+                </div>
+            </div>
+            
+            <div class="form-container">
+                <form id="offer-form">
+                    <div class="form-group">
+                        <label for="country">Select Your Country</label>
+                        <select id="country" required>
+                            <option value="">-- Please select your country --</option>
+                            <option value="US">United States</option>
+                            <option value="UK">United Kingdom</option>
+                            <option value="CA">Canada</option>
+                            <option value="AU">Australia</option>
+                            <option value="DE">Germany</option>
+                            <option value="FR">France</option>
+                            <option value="IT">Italy</option>
+                            <option value="JP">Japan</option>
+                            <option value="ES">Spain</option>
+                            <option value="NL">Netherlands</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="Enter your best email" required>
+                    </div>
+                    
+                    <button type="submit" class="btn">Access Exclusive Offers <i class="fas fa-arrow-right"></i></button>
+                </form>
+                
+                <div class="success-message" id="success-message">
+                    <i class="fas fa-check-circle fa-2x"></i>
+                    <h3>Thank You!</h3>
+                    <p>We're preparing your country-specific offers...</p>
+                    <p>Redirecting in <span id="countdown">5</span> seconds</p>
+                </div>
+            </div>
+            
+            <div class="privacy">
+                <p>We respect your privacy. By submitting, you agree to our <a href="#">Privacy Policy</a> and consent to receive offers.</p>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        document.getElementById('offer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form values
+            const country = document.getElementById('country').value;
+            const email = document.getElementById('email').value;
+            
+            // Hide form, show success message
+            document.getElementById('offer-form').style.display = 'none';
+            document.getElementById('success-message').style.display = 'block';
+            
+            // Save data (in a real app, this would be sent to a server)
+            console.log('User submitted:', {email, country});
+            
+            // Countdown before redirect
+            let seconds = 5;
+            const countdownElement = document.getElementById('countdown');
+            
+            const countdown = setInterval(() => {
+                seconds--;
+                countdownElement.textContent = seconds;
+                
+                if (seconds <= 0) {
+                    clearInterval(countdown);
+                    redirectToOffer(country);
+                }
+            }, 1000);
+        });
+        
+        function redirectToOffer(country) {
+            // Country-specific offer URLs
+            const offerUrls = {
+                'US': 'https://www.amazon.com/',
+                'UK': 'https://www.amazon.co.uk/',
+                'CA': 'https://www.amazon.ca/',
+                'AU': 'https://www.amazon.com.au/',
+                'DE': 'https://www.amazon.de/',
+                'FR': 'https://www.amazon.fr/',
+                'IT': 'https://www.amazon.it/',
+                'JP': 'https://www.amazon.co.jp/',
+                'ES': 'https://www.amazon.es/',
+                'NL': 'https://www.amazon.nl/'
+            };
+            
+            // Default URL if country not found
+            const url = offerUrls[country] || 'https://www.amazon.com/';
+            
+            // Redirect to the offer page
+            window.location.href = url;
+        }
+        
+        // Add flag click functionality
+        const flags = document.querySelectorAll('.flag');
+        flags.forEach(flag => {
+            flag.addEventListener('click', function() {
+                const countryName = this.querySelector('img').alt;
+                const countrySelect = document.getElementById('country');
+                
+                // Find the matching option
+                for (let i = 0; i < countrySelect.options.length; i++) {
+                    if (countrySelect.options[i].text.includes(countryName)) {
+                        countrySelect.selectedIndex = i;
+                        break;
+                    }
+                }
+                
+                // Scroll to form and highlight
+                document.getElementById('email').focus();
+            });
+        });
+    </script>
+</body>
+</html>
