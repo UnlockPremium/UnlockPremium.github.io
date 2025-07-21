@@ -751,6 +751,10 @@
             font-size: 0.8rem;
             font-weight: 700;
             margin-bottom: 15px;
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            z-index: 3;
         }
         
         .cartoon-label {
@@ -806,20 +810,118 @@
                 font-size: 2rem;
             }
         }
+        
+        /* New: Search bar */
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+        
+        .search-bar {
+            display: flex;
+            width: 100%;
+            max-width: 600px;
+        }
+        
+        .search-bar input {
+            flex: 1;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 30px 0 0 30px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(10px);
+            color: white;
+            font-size: 1rem;
+            outline: none;
+        }
+        
+        .search-bar input::placeholder {
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .search-bar button {
+            padding: 0 25px;
+            border: none;
+            border-radius: 0 30px 30px 0;
+            background: linear-gradient(90deg, var(--fnf-pink), var(--fnf-blue));
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .search-bar button:hover {
+            background: linear-gradient(90deg, #ff00cc, #00ccff);
+        }
+        
+        /* New: Filter buttons */
+        .filter-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 15px;
+            margin: 20px 0 40px;
+        }
+        
+        .filter-btn {
+            padding: 8px 20px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--light);
+            border: 2px solid var(--fnf-blue);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .filter-btn.active, .filter-btn:hover {
+            background: linear-gradient(90deg, var(--fnf-pink), var(--fnf-blue));
+            border-color: transparent;
+        }
+        
+        /* New: Mod rating */
+        .mod-rating {
+            display: flex;
+            gap: 5px;
+            margin-top: 10px;
+        }
+        
+        .mod-rating i {
+            color: var(--accent);
+            text-shadow: 0 0 5px rgba(255, 204, 0, 0.7);
+        }
+        
+        /* New: Progress bar */
+        .progress-container {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            height: 8px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--fnf-pink), var(--fnf-blue));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1s ease-out;
+        }
     </style>
 </head>
 <body>
     <!-- FNF Character Elements -->
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI3NSIgY3k9Ijc1IiByPSI3MCIgZmlsbD0iIzAwQ0NGQyIvPjxjaXJjbGUgY3g9IjYwIiBjeT0iNjAiIHI9IjEwIiBmaWxsPSIjZmZmIi8+PGNpcmNsZSBjeD0iOTAiIGN5PSI2MCIgcj0iMTAiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNNTAgOTAgQzc1IDExMCAxMDAgMTEwIDEyNSA5MCIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjUiIGZpbGw9Im5vbmUiLz48L3N2Zz4=" alt="Boyfriend" class="fnf-character character-1">
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI3NSIgY3k9Ijc1IiByPSI3MCIgZmlsbD0iI0ZGMDBGRiIvPjxyZWN0IHg9IjQwIiB5PSI1MCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjQwIiByeD0iMjAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjYwIiByPSI1IiBmaWxsPSIjMzMzIi8+PGNpcmNsZSBjeD0iOTAiIGN5PSI2MCIgcj0iNSIgZmlsbD0iIzMzMyIvPjwvc3ZnPg==" alt="Girlfriend" class="fnf-character character-2">
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTUwIiBoZWlnaHQ9IjE1MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI3NSIgY3k9Ijc1IiByPSI3MCIgZmlsbD0iIzk0MDBEMyIvPjxyZWN0IHg9IjQwIiB5PSI0MCIgd2lkdGg9IjcwIiBoZWlnaHQ9IjQwIiByeD0iMTAiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSI2MCIgY3k9IjUwIiByPSI1IiBmaWxsPSIjMzMzIi8+PGNpcmNsZSBjeD0iOTAiIGN5PSI1MCIgcj0iNSIgZmlsbD0iIzMzMyIvPjxwYXRoIGQ9Ik02MCA4MCBMNjAgOTAgTDkwIDkwIEw5MCA4MCIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="Skelly" class="fnf-character character-3">
+    <img src="https://i.ibb.co/67dNKd0N/vsundertale.png" alt="Boyfriend" class="fnf-character character-1">
+    <img src="https://i.ibb.co/XfJb6VVQ/vmario.png" alt="Girlfriend" class="fnf-character character-2">
+    <img src="https://i.ibb.co/bj96BD7G/vsminecraft.png" alt="Skelly" class="fnf-character character-3">
     
     <!-- New Characters -->
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTIwIiBoZWlnaHQ9IjEyMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB4PSIxMCIgeT0iMjAiIHdpZHRoPSIxMDAiIGhlaWdodD0iODAiIHJ4PSIyMCIgcnk9IjIwIiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iMjAiIHk9IjEwIiB3aWR0aD0iODAiIGhlaWdodD0iMjAiIHJ4PSIxMCIgcnk9IjEwIiBmaWxsPSIjRkZENzAwIi8+PHJlY3QgeD0iMzAiIHk9IjAiIHdpZHRoPSI2MCIgaGVpZ2h0PSIyMCIgcng9IjEwIiByeT0iMTAiIGZpbGw9IiNGRkQ3MDAiLz48Y2lyY2xlIGN4PSI0MCIgY3k9IjYwIiByPSI4IiBmaWxsPSIjMDAwIi8+PGNpcmNsZSBjeD0iODAiIGN5PSI2MCIgcj0iOCIgZmlsbD0iIzAwMCIvPjxyZWN0IHg9IjQ1IiB5PSI3MCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjEwIiByeD0iNSIgcnk9IjUiIGZpbGw9IiMwMDAiLz48L3N2Zz4=" alt="SpongeBob" class="fnf-character spongebob-character">
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQwIiBoZWlnaHQ9IjE0MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI3MCIgY3k9IjQwIiByPSIzMCIgZmlsbD0iI0NDMDAwMCIvPjxyZWN0IHg9IjQwIiB5PSI3MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjcwIiByeD0iMTAiIHJ5PSIxMCIgZmlsbD0iI0NDMDAwMCIvPjxwYXRoIGQ9Ik0zMCAxMjAgTDExMCAxMjAgTDExMCAxNDAgTDMwIDE0MCBaIiBmaWxsPSIjQ0MwMDAwIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iNSIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjkwIiBjeT0iNTAiIHI9IjUiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNNjAgODAgTDgwIDgwIEw4MCAxMDAgTDYwIDEwMCBaIiBmaWxsPSIjZmZmIi8+PC9zdmc+" alt="Invincible" class="fnf-character invincible-character">
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTMwIiBoZWlnaHQ9IjEzMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI2NSIgY3k9IjQwIiByPSIzMCIgZmlsbD0iI0ZGRkZGRiIvPjxyZWN0IHg9IjM1IiB5PSI3MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjcwIiByeD0iMTAiIHJ5PSIxMCIgZmlsbD0iI0ZGRkZGRiIvPjxwYXRoIGQ9Ik0yNSAxMjAgTDEwNSAxMjAgTDEwNSAxNDAgTDI1IDE0MCBaIiBmaWxsPSIjRkZGRkZGIi8+PGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgcj0iMyIgZmlsbD0iIzAwMCIvPjxjaXJjbGUgY3g9IjgwIiBjeT0iNTAiIHI9IjMiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNNTUgODAgTDc1IDgwIEw3NSAxMDAgTDU1IDEwMCBaIiBmaWxsPSIjMDAwIi8+PHBhdGggZD0iTTQwIDMwIEw5MCAzMCBMOTAgNDAgTDQwIDQwIFoiIGZpbGw9IiNGRkNDMDAiLz48L3N2Zz4=" alt="One Punch Man" class="fnf-character onepunch-character">
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1MCIgY3k9IjQwIiByPSIzMCIgZmlsbD0iI0U1MjUyMSIvPjxyZWN0IHg9IjIwIiB5PSI2MCIgd2lkdGg9IjYwIiBoZWlnaHQ9IjQwIiByeD0iMTAiIHJ5PSIxMCIgZmlsbD0iI0U1MjUyMSIvPjxyZWN0IHg9IjM1IiB5PSI0MCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjYmx1ZSIvPjwvc3ZnPg==" alt="Mario" class="fnf-character mario-character">
-    <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTEwIiBoZWlnaHQ9IjExMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48Y2lyY2xlIGN4PSI1NSIgY3k9IjU1IiByPSI1MCIgZmlsbD0iIzFBNzVCQiIvPjxjaXJjbGUgY3g9IjQwIiBjeT0iNDAiIHI9IjUiIGZpbGw9IndoaXRlIi8+PGNpcmNsZSBjeD0iNzAiIGN5PSI0MCIgcj0iNSIgZmlsbD0id2hpdGUiLz48cGF0aCBkPSJNNDAgNzAgTDcwIDcwIEw3MCA5MCBMNDAgOTAgWiIgZmlsbD0id2hpdGUiLz48L3N2Zz4=" alt="Sonic" class="fnf-character sonic-character">
+    <img src="https://i.ibb.co/9mwQs4Md/vsspongebob.png" alt="SpongeBob" class="fnf-character spongebob-character">
+    <img src="https://i.ibb.co/tpFfyCsc/vsyoungomniman.png" alt="Invincible" class="fnf-character invincible-character">
+    <img src="https://i.ibb.co/nM00dFxx/vssaitama.png" alt="One Punch Man" class="fnf-character onepunch-character">
+    <img src="https://i.ibb.co/XfJb6VVQ/vmario.png" alt="Mario" class="fnf-character mario-character">
+    <img src="https://i.ibb.co/B5Z5HbbK/vssonic.png" alt="Sonic" class="fnf-character sonic-character">
     
     <!-- Header -->
     <header>
@@ -893,6 +995,26 @@
         </div>
     </section>
 
+    <!-- Search Bar -->
+    <div class="container">
+        <div class="search-container">
+            <div class="search-bar">
+                <input type="text" placeholder="Search mods by name, character, or category...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+        </div>
+        
+        <div class="filter-container">
+            <button class="filter-btn active">All Mods</button>
+            <button class="filter-btn">Android</button>
+            <button class="filter-btn">iOS</button>
+            <button class="filter-btn">Cartoon</button>
+            <button class="filter-btn">Anime</button>
+            <button class="filter-btn">Game</button>
+            <button class="filter-btn">Horror</button>
+        </div>
+    </div>
+
     <!-- Android Mods Section -->
     <section class="mods-section" id="android-mods">
         <div class="container">
@@ -904,15 +1026,23 @@
                 <!-- Android Mod 1 -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjRkYwMEZGIi8+PGNpcmNsZSBjeD0iMTUwIiBjeT0iODAiIHI9IjQwIiBmaWxsPSIjMzMzIi8+PHBhdGggZD0iTTEwMCAxMzAgTDIwMCAxMzAgTDIwMCAxODAgTDEwMCAxODAgWiIgZmlsbD0iIzAwQ0NGQyIvPjx0ZXh0IHg9IjE1MCIgeT0iNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPldoaXR0eTwvdGV4dD48L3N2Zz4=" alt="Whitty Mod">
+                        <img src="https://i.ibb.co/tMcm508H/Vswhity-Explosion.png" alt="Whitty Mod">
                         <div class="mod-badge android-badge">Android</div>
                     </div>
                     <div class="mod-content">
                         <h3>Whitty Explosive</h3>
                         <p>Face the explosive bomber in this intense mod with 6 new songs and challenging gameplay.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.8)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 850K+</span>
-                            <span><i class="fas fa-star"></i> 4.8/5</span>
+                            <span><i class="fas fa-clock"></i> 45 min</span>
                         </div>
                     </div>
                 </div>
@@ -920,15 +1050,23 @@
                 <!-- Android Mod 2 -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjOTQwMEQzIi8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iODAiIHI9IjMwIiBmaWxsPSIjRkZGRkZGIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iODAiIHI9IjMwIiBmaWxsPSIjRkZGRkZGIi8+PHBhdGggZD0iTTgwIDEzMCBMMTIwIDEzMCBMMTIwIDE4MCBMODAgMTgwIFoiIGZpbGw9IiMwMENDMkMiLz48cGF0aCBkPSJNMTgwIDEzMCBMMjIwIDEzMCBMMjIwIDE4MCBMMTgwIDE4MCBaIiBmaWxsPSIjMDBDQzJDIi8+PHRleHQgeD0iMTUwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjI0IiBmaWxsPSJ3aGl0ZSI+U2tpZCAmYW1wOyBQdW1wPC90ZXh0Pjwvc3ZnPg==" alt="Skid & Pump">
+                        <img src="https://i.ibb.co/wZqwPDSC/VS-Skid-Pump.png" alt="Skid & Pump">
                         <div class="mod-badge android-badge">Android</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Skid & Pump</h3>
                         <p>Battle the spooky duo with Halloween-themed tracks and unique mechanics.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 720K+</span>
-                            <span><i class="fas fa-star"></i> 4.7/5</span>
+                            <span><i class="fas fa-clock"></i> 30 min</span>
                         </div>
                     </div>
                 </div>
@@ -936,15 +1074,23 @@
                 <!-- Android Mod 3 -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDBDM0M3Ii8+PHBhdGggZD0iTTE1MCA1MCBDMTgwIDUwIDIwMCA3MCAyMDAgMTAwIEMyMDAgMTMwIDE4MCAxNTAgMTUwIDE1MCBDMTIwIDE1MCAxMDAgMTMwIDEwMCAxMDAgQzEwMCA3MCAxMjAgNTAgMTUwIDUwIiBmaWxsPSIjRkYwMEZGIi8+PHBhdGggZD0iTTEwMCAxMzAgTDIwMCAxMzAgTDIwMCAxODAgTDEwMCAxODAgWiIgZmlsbD0iI0ZGMDBGRiIvPjx0ZXh0IHg9IjE1MCIgeT0iNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPlNwaXJpdCBIYWxsb3dlZW48L3RleHQ+PC9zdmc+" alt="Spirit Halloween">
+                        <img src="https://i.ibb.co/KzbJsZN5/VSSpirit-Halloween.png" alt="Spirit Halloween">
                         <div class="mod-badge android-badge">Android</div>
                     </div>
                     <div class="mod-content">
                         <h3>Spirit Halloween</h3>
                         <p>Hauntingly fun mod with 8 new characters and a complete story campaign.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.2)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 650K+</span>
-                            <span><i class="fas fa-star"></i> 4.9/5</span>
+                            <span><i class="fas fa-clock"></i> 60 min</span>
                         </div>
                     </div>
                 </div>
@@ -963,16 +1109,24 @@
                 <!-- SpongeBob Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmYwIi8+PHBhdGggZD0iTTE1MCA1MCBjMjAgLTIwIDQwIC0yMCA2MCAwbDAsMTAwIGMtMjAgMjAgLTQwIDIwIC02MCAwIHoiIGZpbGw9IiM0NDQiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjZmYwIi8+PHBhdGggZD0iTTE1MCAxMDAgYzIwIC0xMCA0MCAtMTAgNjAgMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjUiLz48Y2lyY2xlIGN4PSIxMzAiIGN5PSI4MCIgcj0iMTUiIGZpbGw9IiMwMDAiLz48Y2lyY2xlIGN4PSIxNzAiIGN5PSI4MCIgcj0iMTUiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMTQwIDExMCBjLTEwIDAgLTIwIDAgLTMwIDAgbDAsMjAgYzEwIDAgMjAgMCAzMCAwIHoiIGZpbGw9IiMwMDAiLz48L3N2Zz4=" alt="VS SpongeBob">
+                        <img src="https://i.ibb.co/bj96BD7G/vsminecraft.png" alt="VS SpongeBob">
                         <div class="category-label cartoon-label">Cartoon</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS SpongeBob</h3>
                         <p>Dive into Bikini Bottom with SpongeBob and friends in this hilarious underwater rhythm battle! Features 5 weeks of nautical nonsense.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.7)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 920K+</span>
-                            <span><i class="fas fa-star"></i> 4.9/5</span>
+                            <span><i class="fas fa-clock"></i> 40 min</span>
                         </div>
                     </div>
                 </div>
@@ -980,16 +1134,24 @@
                 <!-- Adventure Time Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmYwIi8+PHBhdGggZD0iTTE1MCA1MCBjMjAgLTIwIDQwIC0yMCA2MCAwbDAsMTAwIGMtMjAgMjAgLTQwIDIwIC02MCAwIHoiIGZpbGw9IiM0NDQiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjZmYwIi8+PHBhdGggZD0iTTE1MCAxMDAgYzIwIC0xMCA0MCAtMTAgNjAgMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjUiLz48Y2lyY2xlIGN4PSIxMzAiIGN5PSI4MCIgcj0iMTUiIGZpbGw9IiMwMDAiLz48Y2lyY2xlIGN4PSIxNzAiIGN5PSI4MCIgcj0iMTUiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMTQwIDExMCBjLTEwIDAgLTIwIDAgLTMwIDAgbDAsMjAgYzEwIDAgMjAgMCAzMCAwIHoiIGZpbGw9IiMwMDAiLz48L3N2Zz4=" alt="Adventure Time">
+                        <img src="https://i.ibb.co/8gNV9RNT/VsAdventureTime.png" alt="Adventure Time">
                         <div class="category-label cartoon-label">Cartoon</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>Adventure Time Mod</h3>
                         <p>Mathematical! Battle Finn and Jake in the Land of Ooo with 4 weeks of adventure and unique mechanics.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 780K+</span>
-                            <span><i class="fas fa-star"></i> 4.7/5</span>
+                            <span><i class="fas fa-clock"></i> 35 min</span>
                         </div>
                     </div>
                 </div>
@@ -997,16 +1159,24 @@
                 <!-- Regular Show Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMjBCMkZGIi8+PHBhdGggZD0iTTEwMCA1MCBDMTUwIDMwIDIwMCAzMCAyNTAgNTAgTDI1MCAxNTAgQzIwMCAxNzAgMTUwIDE3MCAxMDAgMTUwIFoiIGZpbGw9IiMwMENDMkMiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjMjBCMkZGIi8+PHBhdGggZD0iTTEzMCxMTAgTDE3MCwxMTAgTDE3MCwxNDAgTDEzMCwxNDAgWiIgZmlsbD0iIzAwQ0MyQyIvPjx0ZXh0IHg9IjE1MCIgeT0iNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPlJlZ3VsYXIgU2hvdyBNb2Q8L3RleHQ+PC9zdmc+" alt="Regular Show">
+                        <img src="https://i.ibb.co/HpGh0PkV/VsRegular-Show-Mod.png" alt="Regular Show">
                         <div class="category-label cartoon-label">Cartoon</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>Regular Show Mod</h3>
                         <p>Get ready for some Mordecai and Rigby action! This mod features 3 weeks of park shenanigans.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.1)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 650K+</span>
-                            <span><i class="fas fa-star"></i> 4.8/5</span>
+                            <span><i class="fas fa-clock"></i> 25 min</span>
                         </div>
                     </div>
                 </div>
@@ -1025,16 +1195,24 @@
                 <!-- Invincible Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjYzAwIi8+PHBhdGggZD0iTTE1MCA1MCBjMjAgLTIwIDQwIC0yMCA2MCAwbDAsMTAwIGMtMjAgMjAgLTQwIDIwIC02MCAwIHoiIGZpbGw9IiMwMDAiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjYzAwIi8+PHBhdGggZD0iTTE1MCAxMDAgYzIwIC0xMCA0MCAtMTAgNjAgMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9IjUiLz48Y2lyY2xlIGN4PSIxMzAiIGN5PSI4MCIgcj0iMTUiIGZpbGw9IiNmZmYiLz48Y2lyY2xlIGN4PSIxNzAiIGN5PSI4MCIgcj0iMTUiIGZpbGw9IiNmZmYiLz48cGF0aCBkPSJNMTQwIDExMCBjLTEwIDAgLTIwIDAgLTMwIDAgbDAsMjAgYzEwIDAgMjAgMCAzMCAwIHoiIGZpbGw9IiNmZmYiLz48L3N2Zz4=" alt="VS Young Omni-Man">
+                        <img src="https://i.ibb.co/tpFfyCsc/vsyoungomniman.png" alt="VS Young Omni-Man">
                         <div class="category-label anime-label">Anime</div>
                         <div class="mod-badge android-badge">Android</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Young Omni-Man</h3>
                         <p>Experience the intensity of Invincible in this action-packed mod featuring Omni-Man with 4 blood-pumping weeks.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.6)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 780K+</span>
-                            <span><i class="fas fa-star"></i> 4.8/5</span>
+                            <span><i class="fas fa-clock"></i> 50 min</span>
                         </div>
                     </div>
                 </div>
@@ -1042,16 +1220,24 @@
                 <!-- One Punch Man Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTE1MCA1MCBjMjAgLTIwIDQwIC0yMCA2MCAwbDAsMTAwIGMtMjAgMjAgLTQwIDIwIC02MCAwIHoiIGZpbGw9IiNmYzAiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTE1MCAxMDAgYzIwIC0xMCA0MCAtMTAgNjAgMCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjMDAwIiBzdHJva2Utd2lkdGg9IjUiLz48Y2lyY2xlIGN4PSIxMzAiIGN5PSI4MCIgcj0iMTUiIGZpbGw9IiMwMDAiLz48Y2lyY2xlIGN4PSIxNzAiIGN5PSI4MCIgcj0iMTUiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMTQwIDExMCBjLTEwIDAgLTIwIDAgLTMwIDAgbDAsMjAgYzEwIDAgMjAgMCAzMCAwIHoiIGZpbGw9IiMwMDAiLz48L3N2Zz4=" alt="VS Saitama">
+                        <img src="https://i.ibb.co/nM00dFxx/vssaitama.png" alt="VS Saitama">
                         <div class="category-label anime-label">Anime</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Saitama</h3>
                         <p>Face the One Punch Man himself! This mod features 6 weeks of superhero action with Saitama and Genos.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.3)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 850K+</span>
-                            <span><i class="fas fa-star"></i> 4.7/5</span>
+                            <span><i class="fas fa-clock"></i> 55 min</span>
                         </div>
                     </div>
                 </div>
@@ -1059,16 +1245,24 @@
                 <!-- Demon Slayer Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMzQzQTg0Ii8+PHBhdGggZD0iTTEwMCA1MCBDMTUwIDMwIDIwMCAzMCAyNTAgNTAgTDI1MCAxNTAgQzIwMCAxNzAgMTUwIDE3MCAxMDAgMTUwIFoiIGZpbGw9IiNGRjAwMDAiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjMzQzQTg0Ii8+PHBhdGggZD0iTTEzMCwxMTAgTDE3MCwxMTAgTDE3MC,xNDAgTDEzMCwxNDAgWiIgZmlsbD0iI0ZGMDAwMCIvPjx0ZXh0IHg9IjE1MCIgeT0iNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPlZTIERlbW9uIFNsYXllcjwvdGV4dD48L3N2Zz4=" alt="VS Demon Slayer">
+                        <img src="https://i.ibb.co/Mk6P4kDT/vsdemonslayer.png" alt="VS Demon Slayer">
                         <div class="category-label anime-label">Anime</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Demon Slayer</h3>
                         <p>Battle Tanjiro and Nezuko in this anime-inspired mod with 5 weeks of demon-slaying action.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 920K+</span>
-                            <span><i class="fas fa-star"></i> 4.9/5</span>
+                            <span><i class="fas fa-clock"></i> 65 min</span>
                         </div>
                     </div>
                 </div>
@@ -1087,16 +1281,24 @@
                 <!-- Mario Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZTUyNSIvPjxwYXRoIGQ9Ik0xNTAgNTAgYzIwIC0yMCA0MCAtMjAgNjAgMGwwLDEwMCBjLTIwIDIwIC00MCAyMCAtNjAgMCB6IiBmaWxsPSIjMUI1ZmYiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjZTUyNSIvPjxwYXRoIGQ9Ik0xNTAgMTAwIGMyMCAtMTAgNDAgLTEwIDYwIDAiIGZpbGw9Im5vbmUiIHN0cm9rZT0iIzAwMCIgc3Ryb2tlLXdpZHRoPSI1Ii8+PGNpcmNsZSBjeD0iMTMwIiBjeT0iODAiIHI9IjE1IiBmaWxsPSIjMDAwIi8+PGNpcmNsZSBjeD0iMTcwIiBjeT0iODAiIHI9IjE1IiBmaWxsPSIjMDAwIi8+PHBhdGggZD0iTTE0MCAxMTAgYy0xMCAwIC0yMCAwIC0zMCAwIGwwLDIwIGMxMCAwIDIwIDAgMzAgMCB6IiBmaWxsPSIjMDAwIi8+PC9zdmc+" alt="VS Super Mario">
+                        <img src="https://i.ibb.co/XfJb6VVQ/vmario.png" alt="VS Super Mario">
                         <div class="category-label game-label">Game</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Super Mario</h3>
                         <p>Jump into the Mushroom Kingdom with Mario, Luigi, and Bowser in this platformer-inspired rhythm mod.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.8)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 1.2M+</span>
-                            <span><i class="fas fa-star"></i> 4.9/5</span>
+                            <span><i class="fas fa-clock"></i> 45 min</span>
                         </div>
                     </div>
                 </div>
@@ -1104,16 +1306,24 @@
                 <!-- Sonic Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMWExZDVmIi8+PHBhdGggZD0iTTE1MCA1MCBjMjAgLTIwIDQwIC0yMCA2MCBsMCwxMDAgYy0yMCAyMCAtNDAgMjAgLTYwIDAgeiIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IiMxYTFkNWYiLz48cGF0aCBkPSJNMTUwIDEwMCBjMjAgLTEwIDQwIC0xMCA2MCAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjgwIiByPSIxNSIgZmlsbD0iIzAwMCIvPjxjaXJjbGUgY3g9IjE3MCIgY3k9IjgwIiByPSIxNSIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0xNDAgMTEwIGMtMTAgMCAtMjAgMCAtMzAgMCBsMCwyMCBjMTAgMCAyMCAwIDMwIDAgeiIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==" alt="VS Sonic">
+                        <img src="https://i.ibb.co/B5Z5HbbK/vssonic.png" alt="VS Sonic">
                         <div class="category-label game-label">Game</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Sonic</h3>
                         <p>Gotta go fast! Race against Sonic and friends in this high-speed mod with 4 weeks of blue blur action.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(5.0)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 980K+</span>
-                            <span><i class="fas fa-star"></i> 4.8/5</span>
+                            <span><i class="fas fa-clock"></i> 40 min</span>
                         </div>
                     </div>
                 </div>
@@ -1121,16 +1331,24 @@
                 <!-- Among Us Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZDkzMDQ4Ii8+PHBhdGggZD0iTTE1MCA1MCBjMjAgLTIwIDQwIC0yMCA2MCBsMCwxMDAgYy0yMCAyMCAtNDAgMjAgLTYwIDAgeiIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IiNkOTMwNDgiLz48cGF0aCBkPSJNMTUwIDEwMCBjMjAgLTEwIDQwIC0xMCA2MCAwIiBmaWxsPSJub25lIiBzdHJva2U9IiMwMDAiIHN0cm9rZS13aWR0aD0iNSIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjgwIiByPSIxNSIgZmlsbD0iIzAwMCIvPjxjaXJjbGUgY3g9IjE3MCIgY3k9IjgwIiByPSIxNSIgZmlsbD0iIzAwMCIvPjxwYXRoIGQ9Ik0xNDAgMTEwIGMtMTAgMCAtMjAgMCAtMzAgMCBsMCwyMCBjMTAgMCAyMCAwIDMwIDAgeiIgZmlsbD0iIzAwMCIvPjwvc3ZnPg==" alt="VS Among Us">
+                        <img src="https://i.ibb.co/bh8WfYY/VsAmongus.png" alt="VS Among Us">
                         <div class="category-label horror-label">Horror</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Among Us</h3>
                         <p>Sus! Battle crewmates and imposters in this space-themed mod with 3 weeks of suspicious gameplay.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.0)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 1.5M+</span>
-                            <span><i class="fas fa-star"></i> 4.9/5</span>
+                            <span><i class="fas fa-clock"></i> 30 min</span>
                         </div>
                     </div>
                 </div>
@@ -1138,16 +1356,24 @@
                 <!-- Bendy Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjMDAwIi8+PHBhdGggZD0iTTE1MCA1MCBjMjAgLTIwIDQwIC0yMCA2MCBsMCwxMDAgYy0yMCAyMCAtNDAgMjAgLTYwIDAgeiIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjE1MCIgY3k9IjEwMCIgcj0iNDAiIGZpbGw9IiMwMDAiLz48cGF0aCBkPSJNMTUwIDEwMCBjMjAgLTEwIDQwIC0xMCA2MCAwIiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iNSIvPjxjaXJjbGUgY3g9IjEzMCIgY3k9IjgwIiByPSIxNSIgZmlsbD0iI2ZmZiIvPjxjaXJjbGUgY3g9IjE3MCIgY3k9IjgwIiByPSIxNSIgZmlsbD0iI2ZmZiIvPjxwYXRoIGQ9Ik0xNDAgMTEwIGMtMTAgMCAtMjAgMCAtMzAgMCBsMCwyMCBjMTAgMCAyMCAwIDMwIDAgeiIgZmlsbD0iI2ZmZiIvPjwvc3ZnPg==" alt="VS Bendy">
+                        <img src="https://i.ibb.co/hFs3G3fP/VsBendy.png" alt="VS Bendy">
                         <div class="category-label horror-label">Horror</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Bendy</h3>
                         <p>Enter the ink-filled nightmare in this horror mod featuring Bendy with 4 weeks of cartoon terror.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                            <span>(4.7)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 850K+</span>
-                            <span><i class="fas fa-star"></i> 4.7/5</span>
+                            <span><i class="fas fa-clock"></i> 55 min</span>
                         </div>
                     </div>
                 </div>
@@ -1155,16 +1381,24 @@
                 <!-- Undertale Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjZmZjMDAwIi8+PHBhdGggZD0iTTEwMCA1MCBDMTUwIDMwIDIwMCAzMCAyNTAgNTAgTDI1MCAxNTAgQzIwMCAxNzAgMTUwIDE3MCAxMDAgMTUwIFoiIGZpbGw9IiMwMDAwMDAiLz48Y2lyY2xlIGN4PSIxNTAiIGN5PSIxMDAiIHI9IjQwIiBmaWxsPSIjZmZjMDAwIi8+PHBhdGggZD0iTTEzMCwxMTAgTDE3MCwxMTAgTDE3MCwxNDAgTDEzMCwxNDAgWiIgZmlsbD0iIzAwMDAwMCIvPjx0ZXh0IHg9IjE1MCIgeT0iNTUiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZvbnQtZmFtaWx5PSJBcmlhbCIgZm9udC1zaXplPSIyNCIgZmlsbD0id2hpdGUiPlVTIFVuZGVydGFsZTwvdGV4dD48L3N2Zz4=" alt="VS Undertale">
+                        <img src="https://i.ibb.co/67dNKd0N/vsundertale.png" alt="VS Undertale">
                         <div class="category-label game-label">Game</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Undertale</h3>
                         <p>Determination! Battle Sans, Papyrus and other monsters in this RPG-inspired mod with 5 weeks.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <span>(4.9)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 1.1M+</span>
-                            <span><i class="fas fa-star"></i> 4.9/5</span>
+                            <span><i class="fas fa-clock"></i> 70 min</span>
                         </div>
                     </div>
                 </div>
@@ -1172,16 +1406,24 @@
                 <!-- Minecraft Mod -->
                 <div class="mod-card">
                     <div class="mod-image">
-                        <img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzAwIiBoZWlnaHQ9IjIwMCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cmVjdCB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiBmaWxsPSIjNWE5YzRlIi8+PHBhdGggZD0iTTEwMCA1MCBDMTUwIDMwIDIwMCAzMCAyNTAgNTAgTDI1MCAxNTAgQzIwMCAxNzAgMTUwIDE3MCAxMDAgMTUwIFoiIGZpbGw9IiM4YzY1MzQiLz48cmVjdCB4PSIxMjAiIHk9IjgwIiB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIGZpbGw9IiM4YzY1MzQiLz48cmVjdCB4PSI5MCIgeT0iNjAiIHdpZHRoPSIxMjAiIGhlaWdodD0iMzAiIGZpbGw9IiM4YzY1MzQiLz48dGV4dCB4PSIxNTAiIHk9IjU1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmb250LWZhbWlseT0iQXJpYWwiIGZvbnQtc2l6ZT0iMjQiIGZpbGw9IndoaXRlIj5NSU5FQ1JBRlQ8L3RleHQ+PC9zdmc+" alt="Minecraft Mod">
+                        <img src="https://i.ibb.co/9mwQs4Md/vsspongebob.png" alt="Minecraft Mod">
                         <div class="category-label game-label">Game</div>
                         <div class="mod-badge both-badge">Android & iOS</div>
                     </div>
                     <div class="mod-content">
                         <h3>VS Minecraft</h3>
                         <p>Craft your rhythm! Battle Steve and Creepers in this blocky adventure with 4 weeks of mining madness.</p>
+                        <div class="mod-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="far fa-star"></i>
+                            <span>(4.1)</span>
+                        </div>
                         <div class="mod-stats">
                             <span><i class="fas fa-download"></i> 1.3M+</span>
-                            <span><i class="fas fa-star"></i> 4.8/5</span>
+                            <span><i class="fas fa-clock"></i> 50 min</span>
                         </div>
                     </div>
                 </div>
@@ -1298,20 +1540,11 @@
                     </ul>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Support</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Installation Guides</a></li>
-                        <li><a href="#">Troubleshooting</a></li>
-                        <li><a href="#">Mod Requests</a></li>
-                        <li><a href="#">FAQ</a></li>
-                        <li><a href="#">Contact Us</a></li>
-                    </ul>
-                </div>
+               
             </div>
             <div class="copyright">
-                <p>&copy; 2023 FNF Mobile Mods. This is a fan project and is not affiliated with the official Friday Night Funkin' game.</p>
-                <p>All mods are property of their respective creators. Icons by Font Awesome.</p>
+                <p>&copy; 2025 FNF Mobile Mods. This is a fan project and is not affiliated with the official Friday Night Funkin' game.</p>
+               
             </div>
         </div>
     </footer>
@@ -1364,6 +1597,27 @@
             const ctaButtons = document.querySelectorAll('.cta-button');
             ctaButtons.forEach(btn => {
                 btn.classList.add('color-shift');
+            });
+            
+            // Filter buttons functionality
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter logic would go here in a real implementation
+                });
+            });
+            
+            // Progress bar animation
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
             });
         });
     </script>
