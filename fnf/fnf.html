@@ -908,6 +908,22 @@
             width: 0;
             transition: width 1s ease-out;
         }
+        
+        /* New: Download counter animation */
+        .download-counter {
+            font-size: 1.2rem;
+            text-align: center;
+            margin: 30px 0;
+            font-weight: 700;
+            color: var(--fnf-blue);
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .counter-number {
+            font-size: 2rem;
+            display: inline-block;
+            min-width: 120px;
+        }
     </style>
 </head>
 <body>
@@ -947,7 +963,7 @@
                     <a href="#install">Installation</a>
                 </nav>
                 
-                <a"https://www.wowrik.news" <button class="cta-button floating color-shift">Get All Mods Now</button>
+                <button class="cta-button floating color-shift" id="getModsBtn">Get Mods Now</button>
             </div>
         </div>
     </header>
@@ -987,8 +1003,13 @@
                     </div>
                 </div>
                 
+                <div class="download-counter">
+                    <span>Downloads: </span>
+                    <span class="counter-number">3,457,821</span>
+                </div>
+                
                 <div class="hero-buttons">
-                    <button class="cta-button floating color-shift">Download All Mods</button>
+                    <button class="cta-button floating color-shift" id="downloadAllBtn">Download All Mods</button>
                     <button class="btn-secondary">Watch Installation Guide</button>
                 </div>
             </div>
@@ -1495,7 +1516,7 @@
         <div class="container">
             <h2>READY TO RHYTHM BATTLE?</h2>
             <p>Join over 3 million players who have transformed their Friday Night Funkin' experience with our premium mobile mods.</p>
-            <button class="cta-button floating color-shift">Download All Mods</button>
+            <button class="cta-button floating color-shift" id="ctaBtn">Download All Mods</button>
             <p style="margin-top: 20px; font-size: 0.9rem;">Available for iOS 13+ and Android 8.0+</p>
         </div>
     </section>
@@ -1540,11 +1561,20 @@
                     </ul>
                 </div>
                 
-               
+                <div class="footer-column">
+                    <h3>Support</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Installation Guides</a></li>
+                        <li><a href="#">Troubleshooting</a></li>
+                        <li><a href="#">Mod Requests</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="mbrkcorp@outlook.com">Contact Us</a></li>
+                    </ul>
+                </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 FNF Mobile Mods. This is a fan project and is not affiliated with the official Friday Night Funkin' game.</p>
-               
+                <p>&copy; 2025 FNF Mobile Mods.</p>
+                
             </div>
         </div>
     </footer>
@@ -1619,6 +1649,40 @@
                 const width = bar.getAttribute('data-width');
                 bar.style.width = width;
             });
+            
+            // Add functionality to the "Get Mods Now" buttons
+            const getModsBtn = document.getElementById('getModsBtn');
+            const downloadAllBtn = document.getElementById('downloadAllBtn');
+            const ctaBtn = document.getElementById('ctaBtn');
+            
+            const openModsSite = function() {
+                window.open('http://vbvb.com', '_blank');
+            };
+            
+            if(getModsBtn) getModsBtn.addEventListener('click', openModsSite);
+            if(downloadAllBtn) downloadAllBtn.addEventListener('click', openModsSite);
+            if(ctaBtn) ctaBtn.addEventListener('click', openModsSite);
+            
+            // Animated download counter
+            const counterEl = document.querySelector('.counter-number');
+            if(counterEl) {
+                let count = 0;
+                const target = 3457821;
+                const duration = 3000;
+                const increment = target / (duration / 16);
+                
+                const updateCounter = () => {
+                    count += increment;
+                    if(count < target) {
+                        counterEl.textContent = Math.floor(count).toLocaleString();
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        counterEl.textContent = target.toLocaleString();
+                    }
+                };
+                
+                updateCounter();
+            }
         });
     </script>
 </body>
