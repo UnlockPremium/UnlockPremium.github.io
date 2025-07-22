@@ -924,6 +924,114 @@
             display: inline-block;
             min-width: 120px;
         }
+        
+        /* Content Locker Modal */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10000;
+            backdrop-filter: blur(10px);
+            display: none;
+        }
+        
+        .modal-content {
+            background: linear-gradient(135deg, #2c0a50 0%, #1a0033 100%);
+            border-radius: 15px;
+            padding: 30px;
+            max-width: 500px;
+            width: 90%;
+            border: 3px solid var(--fnf-purple);
+            box-shadow: 0 0 30px rgba(255, 0, 255, 0.5);
+            text-align: center;
+            position: relative;
+        }
+        
+        .modal-header {
+            margin-bottom: 20px;
+        }
+        
+        .modal-header h3 {
+            font-size: 1.8rem;
+            color: var(--fnf-blue);
+            margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+        }
+        
+        .modal-header p {
+            color: #c0c0ff;
+        }
+        
+        .modal-icon {
+            font-size: 3rem;
+            color: var(--fnf-pink);
+            margin-bottom: 20px;
+            text-shadow: 0 0 15px rgba(255, 0, 255, 0.7);
+        }
+        
+        .modal-steps {
+            text-align: left;
+            margin: 20px 0;
+            padding: 15px;
+            background: rgba(40, 20, 70, 0.5);
+            border-radius: 10px;
+            border: 1px solid var(--fnf-purple);
+        }
+        
+        .modal-steps ol {
+            padding-left: 20px;
+            margin: 15px 0;
+        }
+        
+        .modal-steps li {
+            margin-bottom: 10px;
+            color: #e0e0ff;
+        }
+        
+        .modal-button {
+            background: linear-gradient(90deg, var(--fnf-pink), var(--fnf-blue));
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 20, 204, 0.5);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-top: 20px;
+            width: 100%;
+        }
+        
+        .modal-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 20, 204, 0.8);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            color: var(--light);
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .modal-close:hover {
+            color: var(--fnf-pink);
+            transform: rotate(90deg);
+        }
     </style>
 </head>
 <body>
@@ -1065,6 +1173,7 @@
                             <span><i class="fas fa-download"></i> 850K+</span>
                             <span><i class="fas fa-clock"></i> 45 min</span>
                         </div>
+                        <button class="cta-button" data-mod="whitty">Download Mod</button>
                     </div>
                 </div>
                 
@@ -1089,6 +1198,7 @@
                             <span><i class="fas fa-download"></i> 720K+</span>
                             <span><i class="fas fa-clock"></i> 30 min</span>
                         </div>
+                        <button class="cta-button" data-mod="skid-pump">Download Mod</button>
                     </div>
                 </div>
                 
@@ -1113,344 +1223,38 @@
                             <span><i class="fas fa-download"></i> 650K+</span>
                             <span><i class="fas fa-clock"></i> 60 min</span>
                         </div>
+                        <button class="cta-button" data-mod="spirit-halloween">Download Mod</button>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Cartoon Mods Section -->
-    <section class="mods-section" id="cartoon-mods">
-        <div class="container">
-            <div class="section-title">
-                <h2>CARTOON MODS COLLECTION</h2>
-                <p>Favorite cartoon characters in FNF</p>
+    <!-- Content Locker Modal -->
+    <div class="modal-overlay" id="contentLockerModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeModal">&times;</button>
+            <div class="modal-icon">
+                <i class="fas fa-lock"></i>
             </div>
-            <div class="mods-grid">
-                <!-- SpongeBob Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/bj96BD7G/vsminecraft.png" alt="VS SpongeBob">
-                        <div class="category-label cartoon-label">Cartoon</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS SpongeBob</h3>
-                        <p>Dive into Bikini Bottom with SpongeBob and friends in this hilarious underwater rhythm battle! Features 5 weeks of nautical nonsense.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(4.7)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 920K+</span>
-                            <span><i class="fas fa-clock"></i> 40 min</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Adventure Time Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/8gNV9RNT/VsAdventureTime.png" alt="Adventure Time">
-                        <div class="category-label cartoon-label">Cartoon</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>Adventure Time Mod</h3>
-                        <p>Mathematical! Battle Finn and Jake in the Land of Ooo with 4 weeks of adventure and unique mechanics.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(5.0)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 780K+</span>
-                            <span><i class="fas fa-clock"></i> 35 min</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Regular Show Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/HpGh0PkV/VsRegular-Show-Mod.png" alt="Regular Show">
-                        <div class="category-label cartoon-label">Cartoon</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>Regular Show Mod</h3>
-                        <p>Get ready for some Mordecai and Rigby action! This mod features 3 weeks of park shenanigans.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(4.1)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 650K+</span>
-                            <span><i class="fas fa-clock"></i> 25 min</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="modal-header">
+                <h3>Complete to Download</h3>
+                <p>Finish one simple step to unlock your download</p>
             </div>
+            
+            <div class="modal-steps">
+                <p>To access this premium FNF mod, please complete the following:</p>
+                <ol>
+                    <li>Click the "Unlock Download" button below</li>
+                    <li>Complete the quick offer on the next page</li>
+                    <li>Return here to download your mod</li>
+                </ol>
+                <p>This helps us keep our mods free and updated!</p>
+            </div>
+            
+            <button class="modal-button" id="unlockDownloadBtn">Unlock Download</button>
         </div>
-    </section>
-
-    <!-- Anime Mods Section -->
-    <section class="mods-section" id="anime-mods">
-        <div class="container">
-            <div class="section-title">
-                <h2>ANIME MODS COLLECTION</h2>
-                <p>Your favorite anime characters in FNF</p>
-            </div>
-            <div class="mods-grid">
-                <!-- Invincible Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/tpFfyCsc/vsyoungomniman.png" alt="VS Young Omni-Man">
-                        <div class="category-label anime-label">Anime</div>
-                        <div class="mod-badge android-badge">Android</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS Young Omni-Man</h3>
-                        <p>Experience the intensity of Invincible in this action-packed mod featuring Omni-Man with 4 blood-pumping weeks.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(4.6)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 780K+</span>
-                            <span><i class="fas fa-clock"></i> 50 min</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- One Punch Man Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/nM00dFxx/vssaitama.png" alt="VS Saitama">
-                        <div class="category-label anime-label">Anime</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS Saitama</h3>
-                        <p>Face the One Punch Man himself! This mod features 6 weeks of superhero action with Saitama and Genos.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(4.3)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 850K+</span>
-                            <span><i class="fas fa-clock"></i> 55 min</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Demon Slayer Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/Mk6P4kDT/vsdemonslayer.png" alt="VS Demon Slayer">
-                        <div class="category-label anime-label">Anime</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS Demon Slayer</h3>
-                        <p>Battle Tanjiro and Nezuko in this anime-inspired mod with 5 weeks of demon-slaying action.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(4.9)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 920K+</span>
-                            <span><i class="fas fa-clock"></i> 65 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Trending Mods Section -->
-    <section class="mods-section" id="trending-mods">
-        <div class="container">
-            <div class="section-title">
-                <h2>TRENDING MODS</h2>
-                <p>Most popular mods this month</p>
-            </div>
-            <div class="mods-grid">
-                <!-- Mario Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/XfJb6VVQ/vmario.png" alt="VS Super Mario">
-                        <div class="category-label game-label">Game</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS Super Mario</h3>
-                        <p>Jump into the Mushroom Kingdom with Mario, Luigi, and Bowser in this platformer-inspired rhythm mod.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(4.8)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 1.2M+</span>
-                            <span><i class="fas fa-clock"></i> 45 min</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Sonic Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/B5Z5HbbK/vssonic.png" alt="VS Sonic">
-                        <div class="category-label game-label">Game</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS Sonic</h3>
-                        <p>Gotta go fast! Race against Sonic and friends in this high-speed mod with 4 weeks of blue blur action.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(5.0)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 980K+</span>
-                            <span><i class="fas fa-clock"></i> 40 min</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Among Us Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/bh8WfYY/VsAmongus.png" alt="VS Among Us">
-                        <div class="category-label horror-label">Horror</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS Among Us</h3>
-                        <p>Sus! Battle crewmates and imposters in this space-themed mod with 3 weeks of suspicious gameplay.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(4.0)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 1.5M+</span>
-                            <span><i class="fas fa-clock"></i> 30 min</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Bendy Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/hFs3G3fP/VsBendy.png" alt="VS Bendy">
-                        <div class="category-label horror-label">Horror</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS Bendy</h3>
-                        <p>Enter the ink-filled nightmare in this horror mod featuring Bendy with 4 weeks of cartoon terror.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star-half-alt"></i>
-                            <span>(4.7)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 850K+</span>
-                            <span><i class="fas fa-clock"></i> 55 min</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Undertale Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/67dNKd0N/vsundertale.png" alt="VS Undertale">
-                        <div class="category-label game-label">Game</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS Undertale</h3>
-                        <p>Determination! Battle Sans, Papyrus and other monsters in this RPG-inspired mod with 5 weeks.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <span>(4.9)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 1.1M+</span>
-                            <span><i class="fas fa-clock"></i> 70 min</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <!-- Minecraft Mod -->
-                <div class="mod-card">
-                    <div class="mod-image">
-                        <img src="https://i.ibb.co/9mwQs4Md/vsspongebob.png" alt="Minecraft Mod">
-                        <div class="category-label game-label">Game</div>
-                        <div class="mod-badge both-badge">Android & iOS</div>
-                    </div>
-                    <div class="mod-content">
-                        <h3>VS Minecraft</h3>
-                        <p>Craft your rhythm! Battle Steve and Creepers in this blocky adventure with 4 weeks of mining madness.</p>
-                        <div class="mod-rating">
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="fas fa-star"></i>
-                            <i class="far fa-star"></i>
-                            <span>(4.1)</span>
-                        </div>
-                        <div class="mod-stats">
-                            <span><i class="fas fa-download"></i> 1.3M+</span>
-                            <span><i class="fas fa-clock"></i> 50 min</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- Features Section -->
     <section class="features" id="features">
@@ -1568,13 +1372,13 @@
                         <li><a href="#">Troubleshooting</a></li>
                         <li><a href="#">Mod Requests</a></li>
                         <li><a href="#">FAQ</a></li>
-                        <li><a href="mbrkcorp@outlook.com">Contact Us</a></li>
+                        <li><a href="#">Contact Us</a></li>
                     </ul>
                 </div>
             </div>
             <div class="copyright">
-                <p>&copy; 2025 FNF Mobile Mods.</p>
-                
+                <p>&copy; 2023 FNF Mobile Mods. This is a fan project and is not affiliated with the official Friday Night Funkin' game.</p>
+                <p>All mods are property of their respective creators. Icons by Font Awesome.</p>
             </div>
         </div>
     </footer>
@@ -1650,19 +1454,6 @@
                 bar.style.width = width;
             });
             
-            // Add functionality to the "Get Mods Now" buttons
-            const getModsBtn = document.getElementById('getModsBtn');
-            const downloadAllBtn = document.getElementById('downloadAllBtn');
-            const ctaBtn = document.getElementById('ctaBtn');
-            
-            const openModsSite = function() {
-                window.open('?key=d2de7', '_blank');
-            };
-            
-            if(getModsBtn) getModsBtn.addEventListener('click', openModsSite);
-            if(downloadAllBtn) downloadAllBtn.addEventListener('click', openModsSite);
-            if(ctaBtn) ctaBtn.addEventListener('click', openModsSite);
-            
             // Animated download counter
             const counterEl = document.querySelector('.counter-number');
             if(counterEl) {
@@ -1683,11 +1474,56 @@
                 
                 updateCounter();
             }
+            
+            // Content Locker Functionality
+            const modal = document.getElementById('contentLockerModal');
+            const closeModal = document.getElementById('closeModal');
+            const unlockBtn = document.getElementById('unlockDownloadBtn');
+            const downloadButtons = document.querySelectorAll('.mod-content .cta-button, #getModsBtn, #downloadAllBtn, #ctaBtn');
+            
+            // Function to show the content locker
+            function showContentLocker() {
+                modal.style.display = 'flex';
+            }
+            
+            // Function to hide the content locker
+            function hideContentLocker() {
+                modal.style.display = 'none';
+            }
+            
+            // Function to trigger AdBluemedia locker
+            function triggerAdBluemediaLocker() {
+                // Create and append the AdBluemedia locker scripts
+                const configScript = document.createElement('script');
+                configScript.type = 'text/javascript';
+                configScript.text = 'var hcXCS_Nok_xOBBzc = {"it":4529470,"key":"d2de7"};';
+                
+                const lockerScript = document.createElement('script');
+                lockerScript.src = 'https://dfmpe7igjx4jo.cloudfront.net/ef8cf41.js';
+                
+                document.body.appendChild(configScript);
+                document.body.appendChild(lockerScript);
+                
+                // Hide the modal after triggering
+                hideContentLocker();
+            }
+            
+            // Event listeners
+            closeModal.addEventListener('click', hideContentLocker);
+            unlockBtn.addEventListener('click', triggerAdBluemediaLocker);
+            
+            // Add click events to all download buttons
+            downloadButtons.forEach(button => {
+                button.addEventListener('click', showContentLocker);
+            });
+            
+            // Close modal when clicking outside
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    hideContentLocker();
+                }
+            });
         });
     </script>
 </body>
-    <script type="text/javascript">
-    var hcXCS_Nok_xOBBzc={"it":4529470,"key":"d2de7"};
-</script>
-<script src="https://dfmpe7igjx4jo.cloudfront.net/ef8cf41.js"></script>
 </html>
