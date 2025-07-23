@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FNF Mobile Mods | Ultimate Mod Hub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700;900&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <style>
+        /* All previous CSS styles remain the same */
+        
+        /* New styles for the verification overlay */
+        #verification-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 0, 51, 0.95);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.5s ease;
+            backdrop-filter: blur(10px);
+        }
+        
+        #verification-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        #verification-container {
+            width: 90%;
+            max-width: 800px;
+            background: linear-gradient(135deg, #1a0033 0%, #0c001a 100%);
+            border-radius: 20px;
+            border: 3px solid var(--fnf-blue);
+            box-shadow: 0 0 40px rgba(0, 255, 255, 0.4);
+            padding: 30px;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        #verification-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        
+        #verification-header h2 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            background: linear-gradient(90deg, var(--fnf-pink), var(--fnf-blue));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+        }
+        
+        #verification-header p {
+            color: #c0c0ff;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .verification-step {
+            display: flex;
+            margin-bottom: 25px;
+            background: rgba(40, 20, 70, 0.5);
+            border-radius: 15px;
+            padding: 20px;
+            border: 2px solid var(--fnf-purple);
+        }
+        
+        .step-number {
+            min-width: 50px;
+            height: 50px;
+            background: linear-gradient(90deg, var(--fnf-pink), var(--fnf-blue));
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.5rem;
+            margin-right: 20px;
+        }
+        
+        .step-content h3 {
+            color: var(--fnf-blue);
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        .step-content p {
+            color: #c0c0ff;
+            margin-bottom: 15px;
+        }
+        
+        .step-content ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .step-content ul li {
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .step-content ul li i {
+            color: var(--fnf-blue);
+            margin-right: 10px;
+            width: 20px;
+        }
+        
+        #verification-actions {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+        }
+        
+        #close-verification {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: transparent;
+            border: none;
+            color: var(--fnf-blue);
+            font-size: 1.8rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        #close-verification:hover {
+            color: var(--fnf-pink);
+            transform: scale(1.2);
+        }
+        
+        .progress-container {
+            width: 100%;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            height: 10px;
+            margin: 15px 0;
+            overflow: hidden;
+        }
+        
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, var(--fnf-pink), var(--fnf-blue));
+            border-radius: 10px;
+            width: 0;
+            transition: width 1s ease-out;
+        }
+        
+        .download-link {
+            display: inline-block;
+            background: linear-gradient(90deg, var(--fnf-pink), var(--fnf-blue));
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            margin-top: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 15px rgba(255, 20, 204, 0.5);
+        }
+        
+        .download-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 20px rgba(255, 20, 204, 0.8);
+        }
+    </style>
+</head>
+<body>
+    <!-- FNF Character Elements -->
+    <img src="https://i.ibb.co/67dNKd0N/vsundertale.png" alt="Boyfriend" class="fnf-character character-1">
+    <img src="https://i.ibb.co/XfJb6VVQ/vmario.png" alt="Girlfriend" class="fnf-character character-2">
+    <img src="https://i.ibb.co/bj96BD7G/vsminecraft.png" alt="Skelly" class="fnf-character character-3">
+    
+    <!-- New Characters -->
+    <img src="https://i.ibb.co/9mwQs4Md/vsspongebob.png" alt="SpongeBob" class="fnf-character spongebob-character">
+    <img src="https://i.ibb.co/tpFfyCsc/vsyoungomniman.png" alt="Invincible" class="fnf-character invincible-character">
+    <img src="https://i.ibb.co/nM00dFxx/vssaitama.png" alt="One Punch Man" class="fnf-character onepunch-character">
+    <img src="https://i.ibb.co/XfJb6VVQ/vmario.png" alt="Mario" class="fnf-character mario-character">
+    <img src="https://i.ibb.co/B5Z5HbbK/vssonic.png" alt="Sonic" class="fnf-character sonic-character">
+    
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="navbar">
+                <div class="logo">
+                    <i class="fas fa-music"></i>
+                    <span>FNF MOBILE MODS</span>
+                </div>
+                
+                <div class="platform-switch">
+                    <button class="platform-btn active" data-platform="all">All Platforms</button>
+                    <button class="platform-btn" data-platform="android">Android</button>
+                    <button class="platform-btn" data-platform="ios">iOS</button>
+                </div>
+                
+                <nav class="nav-links">
+                    <a href="#android-mods">Android Mods</a>
+                    <a href="#ios-mods">iOS Mods</a>
+                    <a href="#cartoon-mods">Cartoon Mods</a>
+                    <a href="#anime-mods">Anime Mods</a>
+                    <a href="#trending-mods">Trending Mods</a>
+                    <a href="#install">Installation</a>
+                </nav>
+                
+                <button class="cta-button floating color-shift" id="getModsBtn">Get Mods Now</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>UNLOCK 150+ FNF MODS ON MOBILE</h1>
+                <p>Experience Friday Night Funkin' like never before with our massive collection of mods optimized for both iOS and Android devices!</p>
+                
+                <div class="platform-highlight">
+                    <div class="platform-card android-card">
+                        <div class="platform-icon android-icon">
+                            <i class="fab fa-android"></i>
+                        </div>
+                        <h3>Android Mods</h3>
+                        <ul>
+                            <li>Direct APK installation</li>
+                            <li>No jailbreak required</li>
+                            <li>Full controller support</li>
+                            <li>High performance</li>
+                        </ul>
+                    </div>
+                    
+                    <div class="platform-card ios-card">
+                        <div class="platform-icon ios-icon">
+                            <i class="fab fa-apple"></i>
+                        </div>
+                        <h3>iOS Mods</h3>
+                        <ul>
+                            <li>IPA files for sideloading</li>
+                            <li>AltStore compatible</li>
+                            <li>Optimized for touch</li>
+                            <li>Regular updates</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="download-counter">
+                    <span>Downloads: </span>
+                    <span class="counter-number">3,457,821</span>
+                </div>
+                
+                <div class="hero-buttons">
+                    <button class="cta-button floating color-shift" id="downloadAllBtn">Download All Mods</button>
+                    <button class="btn-secondary">Watch Installation Guide</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Verification Overlay -->
+    <div id="verification-overlay">
+        <div id="verification-container">
+            <button id="close-verification"><i class="fas fa-times"></i></button>
+            
+            <div id="verification-header">
+                <h2>VERIFICATION REQUIRED</h2>
+                <p>Complete these quick steps to access your FNF mods collection</p>
+            </div>
+            
+            <div class="verification-step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h3>Human Verification</h3>
+                    <p>We need to verify you're a real user to prevent bots from overloading our servers.</p>
+                    <div class="progress-container">
+                        <div class="progress-bar" id="verification-progress" data-width="30%"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="verification-step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h3>Device Compatibility</h3>
+                    <p>Your device information:</p>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Platform: <span id="device-platform">Detecting...</span></li>
+                        <li><i class="fas fa-check-circle"></i> OS Version: <span id="os-version">Detecting...</span></li>
+                        <li><i class="fas fa-check-circle"></i> RAM: <span id="device-ram">Detecting...</span></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="verification-step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h3>Download Mod Collection</h3>
+                    <p>Your mods are ready for download!</p>
+                    <a href="#" class="download-link" id="download-link">
+                        <i class="fas fa-download"></i> Download All Mods (1.2GB)
+                    </a>
+                </div>
+            </div>
+            
+            <div id="verification-actions">
+                <button class="btn-secondary">Need Help?</button>
+                <button class="cta-button" id="continue-btn">Continue to Mods</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- The rest of the page content remains unchanged -->
+    <!-- Search Bar, Mods Sections, Features, CTA, Footer, etc. -->
+
+    <script>
+        // Platform filter functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            // ... existing code ...
+            
+            // Add functionality to the "Get Mods Now" buttons
+            const getModsBtn = document.getElementById('getModsBtn');
+            const downloadAllBtn = document.getElementById('downloadAllBtn');
+            const ctaBtn = document.getElementById('ctaBtn');
+            const closeBtn = document.getElementById('close-verification');
+            const continueBtn = document.getElementById('continue-btn');
+            const verificationOverlay = document.getElementById('verification-overlay');
+            const downloadLink = document.getElementById('download-link');
+            
+            // Function to open verification overlay
+            const openVerification = function() {
+                // Show verification overlay
+                verificationOverlay.classList.add('active');
+                
+                // Prevent scrolling of background content
+                document.body.style.overflow = 'hidden';
+                
+                // Update device info
+                updateDeviceInfo();
+                
+                // Simulate verification progress
+                simulateVerificationProgress();
+                
+                // Change URL using History API
+                history.pushState({page: 'verification'}, '', '/fnf/fnfverification');
+            };
+            
+            // Function to close verification overlay
+            const closeVerification = function() {
+                verificationOverlay.classList.remove('active');
+                document.body.style.overflow = 'auto';
+                
+                // Restore original URL
+                history.pushState(null, '', window.location.pathname);
+            };
+            
+            // Function to update device information
+            function updateDeviceInfo() {
+                const platformEl = document.getElementById('device-platform');
+                const osVersionEl = document.getElementById('os-version');
+                const ramEl = document.getElementById('device-ram');
+                
+                // Detect platform
+                const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+                let platform = 'Unknown';
+                
+                if (/Android/i.test(navigator.userAgent)) {
+                    platform = 'Android';
+                } else if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+                    platform = 'iOS';
+                } else {
+                    platform = 'Desktop';
+                }
+                
+                platformEl.textContent = platform;
+                
+                // Detect OS version
+                let osVersion = 'Unknown';
+                const userAgent = navigator.userAgent;
+                
+                if (/Android/i.test(userAgent)) {
+                    const match = userAgent.match(/Android\s([0-9\.]+)/);
+                    osVersion = match ? match[1] : 'Unknown';
+                } else if (/iPhone|iPad|iPod/i.test(userAgent)) {
+                    const match = userAgent.match(/OS\s([0-9_]+)/);
+                    osVersion = match ? match[1].replace(/_/g, '.') : 'Unknown';
+                } else {
+                    osVersion = navigator.platform;
+                }
+                
+                osVersionEl.textContent = osVersion;
+                
+                // Estimate RAM (this is not precise but gives a reasonable estimate)
+                let ram = 'Unknown';
+                if (navigator.deviceMemory) {
+                    ram = navigator.deviceMemory + ' GB';
+                } else {
+                    // Fallback estimation
+                    ram = isMobile ? '4 GB' : '8 GB';
+                }
+                
+                ramEl.textContent = ram;
+            }
+            
+            // Function to simulate verification progress
+            function simulateVerificationProgress() {
+                const progressBar = document.getElementById('verification-progress');
+                progressBar.style.width = '0%';
+                
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 5;
+                    progressBar.style.width = progress + '%';
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        
+                        // Enable download link
+                        downloadLink.style.opacity = '1';
+                        downloadLink.style.pointerEvents = 'auto';
+                        downloadLink.style.background = 'linear-gradient(90deg, var(--android-green), var(--ios-blue))';
+                        
+                        // Update button text
+                        continueBtn.textContent = 'Access Mod Hub';
+                    }
+                }, 200);
+            }
+            
+            // Attach event listeners
+            if (getModsBtn) getModsBtn.addEventListener('click', openVerification);
+            if (downloadAllBtn) downloadAllBtn.addEventListener('click', openVerification);
+            if (ctaBtn) ctaBtn.addEventListener('click', openVerification);
+            if (closeBtn) closeBtn.addEventListener('click', closeVerification);
+            if (continueBtn) continueBtn.addEventListener('click', closeVerification);
+            
+            // Handle back button to close verification
+            window.addEventListener('popstate', function(event) {
+                if (verificationOverlay.classList.contains('active')) {
+                    closeVerification();
+                }
+            });
+            
+            // Animated download counter
+            const counterEl = document.querySelector('.counter-number');
+            if(counterEl) {
+                // ... existing counter code ...
+            }
+        });
+    </script>
+</body>
+</html>
