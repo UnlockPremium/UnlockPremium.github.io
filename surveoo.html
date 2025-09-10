@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surveoo - Get Paid for Your Opinion | Earn up to €7 per Survey</title>
+    <style>
+        :root {
+            --primary: #4a6cf7;
+            --secondary: #6c757d;
+            --accent: #20c997;
+            --light: #f8f9fa;
+            --dark: #212529;
+            --success: #28a745;
+            --warning: #ffc107;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            color: var(--dark);
+            line-height: 1.6;
+            background-color: #f9fbfd;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--primary);
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #3a5ae0;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-accent {
+            background-color: var(--accent);
+        }
+        
+        .btn-accent:hover {
+            background-color: #1ba87c;
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f6f9ff 0%, #e9f2ff 100%);
+        }
+        
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .hero-text {
+            flex: 1;
+            padding-right: 40px;
+        }
+        
+        .hero-image {
+            flex: 1;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+            color: var(--dark);
+        }
+        
+        .hero h1 span {
+            color: var(--primary);
+        }
+        
+        .highlight {
+            color: var(--accent);
+            font-weight: 700;
+        }
+        
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            color: var(--secondary);
+        }
+        
+        .earning-badge {
+            display: inline-block;
+            background-color: var(--warning);
+            color: var(--dark);
+            padding: 5px 15px;
+            border-radius: 30px;
+            font-weight: 600;
+            margin: 15px 0;
+        }
+        
+        /* How it Works */
+        .section {
+            padding: 80px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--dark);
+            margin-bottom: 15px;
+        }
+        
+        .section-title p {
+            color: var(--secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 50px;
+        }
+        
+        .step {
+            flex: 0 0 calc(33.333% - 30px);
+            text-align: center;
+            padding: 30px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+        
+        .step:hover {
+            transform: translateY(-10px);
+        }
+        
+        .step-icon {
+            width: 80px;
+            height: 80px;
+            background-color: #e9f2ff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: var(--primary);
+            font-size: 30px;
+        }
+        
+        .step h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            background-color: #f6f9ff;
+        }
+        
+        .testimonial-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+        }
+        
+        .testimonial {
+            flex: 0 0 calc(50% - 15px);
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: #e9f2ff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 15px;
+            color: var(--primary);
+            font-weight: bold;
+            font-size: 24px;
+        }
+        
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+        }
+        
+        .testimonial-info p {
+            color: var(--secondary);
+            font-size: 14px;
+        }
+        
+        .earnings {
+            color: var(--success);
+            font-weight: 600;
+        }
+        
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            background: linear-gradient(135deg, #4a6cf7 0%, #3a5ae0 100%);
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .cta h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+            font-size: 18px;
+            opacity: 0.9;
+        }
+        
+        .btn-light {
+            background-color: white;
+            color: var(--primary);
+        }
+        
+        .btn-light:hover {
+            background-color: #f8f9fa;
+            color: var(--primary);
+        }
+        
+        /* FAQ */
+        .faq-item {
+            margin-bottom: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 20px 20px;
+            color: var(--secondary);
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: white;
+            padding: 60px 0 30px;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+        
+        .footer-column {
+            flex: 0 0 calc(25% - 30px);
+            margin-bottom: 30px;
+        }
+        
+        .footer-column h3 {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-column a {
+            color: #a0aec0;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-column a:hover {
+            color: white;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid #2d3748;
+            color: #a0aec0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .hero-text {
+                padding-right: 0;
+                margin-bottom: 40px;
+            }
+            
+            .step {
+                flex: 0 0 calc(50% - 15px);
+            }
+            
+            .footer-column {
+                flex: 0 0 calc(50% - 30px);
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .step {
+                flex: 0 0 100%;
+            }
+            
+            .testimonial {
+                flex: 0 0 100%;
+            }
+            
+            .footer-column {
+                flex: 0 0 100%;
+            }
+            
+            .hero h1 {
+                font-size: 36px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">Surveoo</div>
+                <ul class="nav-links">
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#" class="btn">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>Earn Money Sharing <span>Your Opinion</span></h1>
+                    <div class="earning-badge">Earn up to €7 per survey!</div>
+                    <p>Join thousands of members who are getting paid for their feedback. Share your opinions on products and services and get rewarded for your time.</p>
+                    <a href="#" class="btn btn-accent">Start Earning Now</a>
+                </div>
+                <div class="hero-image">
+                    <svg width="300" height="250" viewBox="0 0 600 500">
+                        <rect x="100" y="50" width="400" height="300" rx="20" fill="#4a6cf7" opacity="0.1"/>
+                        <circle cx="300" cy="150" r="80" fill="#4a6cf7" opacity="0.2"/>
+                        <path d="M270 150 L300 180 L340 120" stroke="white" stroke-width="10" fill="none"/>
+                        <rect x="150" y="280" width="80" height="60" rx="10" fill="#20c997"/>
+                        <rect x="270" y="280" width="80" height="60" rx="10" fill="#4a6cf7"/>
+                        <rect x="390" y="280" width="80" height="60" rx="10" fill="#ffc107"/>
+                        <text x="190" y="315" fill="white" text-anchor="middle" font-size="18" font-weight="600">€5</text>
+                        <text x="310" y="315" fill="white" text-anchor="middle" font-size="18" font-weight="600">€7</text>
+                        <text x="430" y="315" fill="white" text-anchor="middle" font-size="18" font-weight="600">€3</text>
+                    </svg>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section" id="how-it-works">
+        <div class="container">
+            <div class="section-title">
+                <h2>How It Works</h2>
+                <p>Start earning in just three simple steps</p>
+            </div>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-icon">1</div>
+                    <h3>Create Your Account</h3>
+                    <p>Sign up for free and complete your profile to get matched with relevant surveys.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">2</div>
+                    <h3>Take Surveys</h3>
+                    <p>Share your honest opinions on products and services that interest you.</p>
+                </div>
+                <div class="step">
+                    <div class="step-icon">3</div>
+                    <h3>Get Paid</h3>
+                    <p>Earn up to €7 for each completed survey. Redeem your earnings via PayPal or gift cards.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <div class="section-title">
+                <h2>What Our Members Say</h2>
+                <p>Real people, real earnings</p>
+            </div>
+            <div class="testimonial-grid">
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">S</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah M.</h4>
+                            <p>Teacher, Berlin</p>
+                        </div>
+                    </div>
+                    <p>"I've been using Surveoo for 3 months now and have already earned over €300. It's perfect for filling spare time during my commute."</p>
+                    <p class="earnings">Total earned: €327</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">M</div>
+                        <div class="testimonial-info">
+                            <h4>Markus T.</h4>
+                            <p>Student, Munich</p>
+                        </div>
+                    </div>
+                    <p>"As a student, Surveoo helps me earn extra cash without a fixed schedule. The higher-paying surveys are definitely worth it!"</p>
+                    <p class="earnings">Total earned: €215</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">J</div>
+                        <div class="testimonial-info">
+                            <h4>Julia K.</h4>
+                            <p>Freelancer, Hamburg</p>
+                        </div>
+                    </div>
+                    <p>"I love that I can do surveys whenever I have a break between projects. The payout process is quick and reliable."</p>
+                    <p class="earnings">Total earned: €512</p>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">T</div>
+                        <div class="testimonial-info">
+                            <h4>Thomas R.</h4>
+                            <p>Retired, Cologne</p>
+                        </div>
+                    </div>
+                    <p>"Surveoo gives me something productive to do in my free time while earning nice extra income. The €7 surveys are my favorite!"</p>
+                    <p class="earnings">Total earned: €689</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+        <div class="container">
+            <h2>Start Earning Today</h2>
+            <p>Join thousands of members who are getting paid for their opinions. Sign up now and get access to high-paying surveys.</p>
+            <a href="#" class="btn btn-light">Create Your Free Account</a>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="section" id="faq">
+        <div class="container">
+            <div class="section-title">
+                <h2>Frequently Asked Questions</h2>
+                <p>Everything you need to know about Surveoo</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item">
+                    <div class="faq-question">How much can I really earn with Surveoo? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>You can earn up to €7 per survey, depending on the length and complexity. Most surveys pay between €1-€7, with the average being around €3. Active members typically earn €50-€200 per month.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How do I get paid? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>We offer payments via PayPal, bank transfer, or gift cards to popular retailers. You can request payment once you reach the €20 minimum threshold.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">How long do surveys take? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Survey length varies, but most take between 5-20 minutes to complete. The estimated time and reward are always shown before you start a survey.</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">Is Surveoo available in my country? <span>+</span></div>
+                    <div class="faq-answer">
+                        <p>Surveoo is available in most European countries, including Germany, France, Spain, Italy, and the UK. We're continuously expanding to new regions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Surveoo</h3>
+                    <p>Get paid for your opinions. Earn up to €7 per survey by sharing your feedback with brands worldwide.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#testimonials">Testimonials</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Legal</h3>
+                    <ul>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Cookie Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact</h3>
+                    <ul>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Partnerships</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 Surveoo. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple FAQ toggle functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                answer.style.display = answer.style.display === 'block' ? 'none' : 'block';
+                question.querySelector('span').textContent = 
+                    answer.style.display === 'block' ? '−' : '+';
+            });
+        });
+    </script>
+</body>
+</html>
